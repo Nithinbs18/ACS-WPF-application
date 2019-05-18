@@ -1,0 +1,15 @@
+C:\Users\ins_IT\Desktop\ACS_WPF\CrossSum\CrossSum-Project1\CrossSum-Project1\bin\Debug\CrossSum-Project1.exe.config
+C:\Users\ins_IT\Desktop\ACS_WPF\CrossSum\CrossSum-Project1\CrossSum-Project1\bin\Debug\CrossSum-Project1.exe
+C:\Users\ins_IT\Desktop\ACS_WPF\CrossSum\CrossSum-Project1\CrossSum-Project1\bin\Debug\CrossSum-Project1.pdb
+C:\Users\ins_IT\Desktop\ACS_WPF\CrossSum\CrossSum-Project1\CrossSum-Project1\obj\Debug\CrossSum-Project1.csprojAssemblyReference.cache
+C:\Users\ins_IT\Desktop\ACS_WPF\CrossSum\CrossSum-Project1\CrossSum-Project1\obj\Debug\MainWindow.g.cs
+C:\Users\ins_IT\Desktop\ACS_WPF\CrossSum\CrossSum-Project1\CrossSum-Project1\obj\Debug\App.g.cs
+C:\Users\ins_IT\Desktop\ACS_WPF\CrossSum\CrossSum-Project1\CrossSum-Project1\obj\Debug\CrossSum-Project1_MarkupCompile.cache
+C:\Users\ins_IT\Desktop\ACS_WPF\CrossSum\CrossSum-Project1\CrossSum-Project1\obj\Debug\CrossSum-Project1_MarkupCompile.lref
+C:\Users\ins_IT\Desktop\ACS_WPF\CrossSum\CrossSum-Project1\CrossSum-Project1\obj\Debug\MainWindow.baml
+C:\Users\ins_IT\Desktop\ACS_WPF\CrossSum\CrossSum-Project1\CrossSum-Project1\obj\Debug\CrossSum-Project1.g.resources
+C:\Users\ins_IT\Desktop\ACS_WPF\CrossSum\CrossSum-Project1\CrossSum-Project1\obj\Debug\CrossSum_Project1.Properties.Resources.resources
+C:\Users\ins_IT\Desktop\ACS_WPF\CrossSum\CrossSum-Project1\CrossSum-Project1\obj\Debug\CrossSum-Project1.csproj.GenerateResource.cache
+C:\Users\ins_IT\Desktop\ACS_WPF\CrossSum\CrossSum-Project1\CrossSum-Project1\obj\Debug\CrossSum-Project1.csproj.CoreCompileInputs.cache
+C:\Users\ins_IT\Desktop\ACS_WPF\CrossSum\CrossSum-Project1\CrossSum-Project1\obj\Debug\CrossSum-Project1.exe
+C:\Users\ins_IT\Desktop\ACS_WPF\CrossSum\CrossSum-Project1\CrossSum-Project1\obj\Debug\CrossSum-Project1.pdb
