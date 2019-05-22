@@ -15,12 +15,13 @@
         <StackPanel HorizontalAlignment="Left" Height="42" Margin="7,52,0,0" VerticalAlignment="Top" Orientation="Horizontal" Width="760" RenderTransformOrigin="0.674,0.678">
             <TextBlock HorizontalAlignment="Left" Margin="50,0,0,0" TextWrapping="Wrap" Text="Order Number:" VerticalAlignment="Top" Height="38" Width="121" FontSize="15"/>
             <TextBox  HorizontalAlignment="Left" Height="38"  TextWrapping="Wrap" VerticalAlignment="Top" Width="251" Margin="45,0,15,0"  />
-            <Button Content="Add item" Width="95" Margin="35,0,0,10.4" FontSize="15" />
         </StackPanel>
         <TabControl HorizontalAlignment="Left" Height="292" Margin="10,99,0,0" VerticalAlignment="Top" Width="760">
             <TabItem Header="Food" FontSize="15">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0.4,8">
-                    <ScrollViewer HorizontalAlignment="Left" Height="232" Margin="10,10,0,0" VerticalAlignment="Top" Width="727" Background="#FFE5E5E5"/>
+                    <ScrollViewer HorizontalAlignment="Left" Height="232" Margin="10,10,0,0" VerticalAlignment="Top" Width="727" Background="#FFE5E5E5">
+                        <Button Content="Add item" Width="95" FontSize="15" Click="Button_Click" Height="32" />
+                    </ScrollViewer>
                 </Grid>
             </TabItem>
             <TabItem Header="Drink" FontSize="15">

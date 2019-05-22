@@ -15,15 +15,13 @@ using System.Windows.Shapes;
 namespace demo
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for cashier.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class cashier : Window
     {
-        public Window1()
+        public cashier()
         {
             InitializeComponent();
         }
-
-      
     }
 }

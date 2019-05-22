@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8AD8CC25-76E4-4B75-B804-7275833A4EFF}</ProjectGuid>
+    <ProjectGuid>{C57C3FAA-862C-46F1-9305-E81318732126}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>demo</RootNamespace>
-    <AssemblyName>demo</AssemblyName>
+    <RootNamespace>restaurant</RootNamespace>
+    <AssemblyName>restaurant</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -55,29 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="cashier.xaml.cs">
-      <DependentUpon>cashier.xaml</DependentUpon>
+    <Compile Include="readyOrder.xaml.cs">
+      <DependentUpon>readyOrder.xaml</DependentUpon>
     </Compile>
-    <Compile Include="login.xaml.cs">
-      <DependentUpon>login.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="newOrder.xaml.cs">
-      <DependentUpon>newOrder.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="readyOrders.xaml.cs">
-      <DependentUpon>readyOrders.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="orderDetails.xaml.cs">
-      <DependentUpon>orderDetails.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Window4.xaml.cs">
-      <DependentUpon>Window4.xaml</DependentUpon>
-    </Compile>
-    <Page Include="cashier.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="landing.xaml">
+    <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -85,32 +66,23 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="landing.xaml.cs">
-      <DependentUpon>landing.xaml</DependentUpon>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="login.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="newOrder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="readyOrders.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="orderDetails.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Window4.xaml">
+    <Page Include="readyOrder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="newOrder.xaml.cs">
+      <DependentUpon>newOrder.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
