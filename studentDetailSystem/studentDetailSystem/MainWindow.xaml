@@ -6,20 +6,23 @@
         xmlns:local="clr-namespace:studentDetailSystem"
         Loaded="Window_Loaded"
         mc:Ignorable="d"
-        Title="Manage Students" Height="370" Width="400">
-    <Grid Height="321" Margin="0,0,-0.4,-0.2" >
+        Title="Manage Students" Height="376.834" Width="400">
+    <Grid Margin="0,28,-0.4,10.2" >
+        <Grid.Resources>
+            <local:Bool2String x:Key="cB2S" />
+        </Grid.Resources>
         <Grid.RowDefinitions>
-            <RowDefinition Height="17*"/>
-            <RowDefinition Height="90*"/>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="302*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50*"/>
             <ColumnDefinition Width="81*"/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="Tbx_filter" HorizontalAlignment="Left" FontWeight="UltraLight" Height="23" Margin="9,9.8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131" Grid.Row="1" TextChanged="Tbx_filter_TextChanged"/>
-        <TextBlock FontStyle="Italic" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Student De"/><Run Text="tails"/><Run Text=":"/></TextBlock>
-        <ListBox x:Name="Lbx_students" HorizontalAlignment="Left" Margin="10,39.8,0,45" Grid.Row="1" VerticalAlignment="Top" Width="130" DisplayMemberPath="FirstName"/>
-        <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="229" Margin="9.6,9.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="223" DataContext="{Binding ElementName=Lbx_students, Path=SelectedItem}">
+        <TextBox x:Name="Tbx_filter" HorizontalAlignment="Left" FontWeight="UltraLight" Height="23" Margin="9,22.8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131" Grid.Row="1" TextChanged="Tbx_filter_TextChanged"/>
+        <TextBlock FontStyle="Italic" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="85"><Run Text="Student De"/><Run Text="tails"/><Run Text=":"/></TextBlock>
+        <ListBox x:Name="Lbx_students" HorizontalAlignment="Left" Margin="10,57.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130" DisplayMemberPath="FirstName" />
+        <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="229" Margin="9.6,7.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="223" DataContext="{Binding ElementName=Lbx_students, Path=SelectedItem}">
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Height="19" Width="213">
             <Run Text="{Binding FirstName}" Foreground="Red" FontWeight="Bold" />
             <Run Text=" " />
@@ -37,8 +40,12 @@
                 <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Text="Hobbies:"/>
                 <TextBox TextWrapping="Wrap" Margin="22,0,73.2,0" Width="87" Text="{Binding hobbies}"/>
             </StackPanel>
+            <StackPanel HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="223" Orientation="Horizontal">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="59"><Run Text="Task: "/></TextBlock>
+                <TextBox Height="23" TextWrapping="Wrap"  Margin="11,2,73.2,2.2" Width="86" Text="{Binding taskOk, Converter={StaticResource cB2S }}" />
+            </StackPanel>
         </StackPanel>
-        <StackPanel Margin="10,244.8,10.4,5.8" Orientation="Horizontal" Grid.Row="1"  RenderTransformOrigin="0.505,0.153">
+        <StackPanel Margin="10,240.8,10.4,5.8" Orientation="Horizontal" Grid.Row="1"  RenderTransformOrigin="0.505,0.153">
             <Button Name="Btn_add" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="53" RenderTransformOrigin="0.5,0.5" Click="Btn_add_Click">
             </Button>
             <Button Name="Btn_delete" Content="Delete" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Width="53" RenderTransformOrigin="0.5,0.5" Click="Btn_delete_Click">
@@ -46,6 +53,7 @@
             </Button>
 
         </StackPanel>
+        <TextBlock HorizontalAlignment="Left" Margin="10,2.8,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Filter:" VerticalAlignment="Top" Height="16" Width="29"/>
 
     </Grid>
 </Window>

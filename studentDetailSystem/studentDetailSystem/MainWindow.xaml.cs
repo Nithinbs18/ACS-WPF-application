@@ -64,14 +64,25 @@ namespace studentDetailSystem
             else
             {
                 students.Remove(Lbx_students.SelectedItem as Student);
+                Tbx_filter.Text = "";
             }
         }
-
+       
+        string filter = "";
         private void Tbx_filter_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var filter = Tbx_filter.Text;
-            var results = from s in students where s.lastName.Contains(filter) select s;
-            Lbx_students.ItemsSource = results;
+            filter = Tbx_filter.Text.ToLower();
+            if (filter == "")
+            {
+                Lbx_students.ItemsSource = students;
+            }
+
+            else
+            {
+                var results = from s in students where s.FirstName.ToLower().Contains(filter) select s;
+                Lbx_students.ItemsSource = results;
+            }
+            
         }
     }
 }
