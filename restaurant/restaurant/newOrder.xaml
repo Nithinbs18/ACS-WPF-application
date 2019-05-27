@@ -22,25 +22,39 @@
             <StackPanel HorizontalAlignment="Left" Height="42" Margin="7,52,0,0" VerticalAlignment="Top" Orientation="Horizontal" Width="760" RenderTransformOrigin="0.674,0.678">
                 <TextBlock HorizontalAlignment="Left" Margin="20,0,0,0" TextWrapping="Wrap" Text="Order Number:" VerticalAlignment="Top" Height="38" Width="121" FontSize="15"/>
                 <TextBox  HorizontalAlignment="Left" Height="38"  TextWrapping="Wrap" VerticalAlignment="Top" Width="251" Margin="15,0,15,0"  />
-                <Button Content="Add item" Width="95" FontSize="15"  Margin="15,0,0,10.4" />
+                <!--<Button Name="Btn_addItem" Content="Add item" Width="95" FontSize="15"  Margin="15,0,0,10.4" Click="Btn_addItem_Click" />-->
             </StackPanel>
-            <TabControl HorizontalAlignment="Left" Height="321" Margin="10,99,0,0" VerticalAlignment="Top" Width="566" >
+            <TabControl HorizontalAlignment="Left" Height="331" Margin="10,99,0,0" VerticalAlignment="Top" Width="566" >
                 <TabItem Header="Food" FontSize="15">
                     <Grid Background="#FFE5E5E5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="39*"/>
-                        </Grid.ColumnDefinitions>
-                        <ScrollViewer HorizontalAlignment="Left" Margin="10,10,0,10" Width="541" Background="#FFE5E5E5" Grid.ColumnSpan="2"/>
+                        <DataGrid IsReadOnly="True" x:Name="Grd_Menu_Food" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="269" Margin="10,10,0,0" VerticalAlignment="Top" Width="541" AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Nu." Binding="{Binding id}" Width="*" />
+                                <DataGridTextColumn Header="Name" Binding="{Binding name}" Width="*" />
+                                <DataGridTextColumn Header="Price" Binding="{Binding price}" Width="*" />
+                                <DataGridTextColumn Header="Description" Binding="{Binding description}" Width="*" />
+                                <DataGridTextColumn Header="category" Binding="{Binding category}" Width="*" />
+
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+
                     </Grid>
                 </TabItem>
                 <TabItem Header="Drink" FontSize="15">
-                    <Grid Background="#FFE5E5E5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="39*"/>
-                        </Grid.ColumnDefinitions>
-                        <ScrollViewer HorizontalAlignment="Left" Margin="10,10,0,10" Width="541" Background="#FFE5E5E5" Grid.ColumnSpan="2"/>
+                    <Grid Background="#FFE5E5E5" Margin="0,0,-0.2,-7.2">
+                        <DataGrid IsReadOnly="True" x:Name="Grd_Menu_Drink" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="284" Margin="10,10,0,0" VerticalAlignment="Top" Width="541" AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Nu." Binding="{Binding id}" Width="*" />
+                                <DataGridTextColumn Header="Name" Binding="{Binding name}" Width="*" />
+                                <DataGridTextColumn Header="Price" Binding="{Binding price}" Width="*" />
+                                <DataGridTextColumn Header="Description" Binding="{Binding description}" Width="*" />
+                                <DataGridTextColumn Header="category" Binding="{Binding category}" Width="*" />
+
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+
                     </Grid>
                 </TabItem>
                 <TabItem Header="Desserts" FontSize="15">
@@ -49,10 +63,9 @@
                             <ColumnDefinition/>
                             <ColumnDefinition Width="39*"/>
                         </Grid.ColumnDefinitions>
-                        <ScrollViewer HorizontalAlignment="Left" Margin="10,10,0,10" Width="541" Background="#FFE5E5E5" Grid.ColumnSpan="2"/>
                     </Grid>
                 </TabItem>
-                
+
             </TabControl>
         </Grid>
     </Grid>

@@ -8,8 +8,8 @@
         Title="Indian Restaurant" Height="800" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="249*"/>
-            <RowDefinition Height="136*"/>
+            <RowDefinition Height="469*"/>
+            <RowDefinition Height="302*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="174*"/>
@@ -20,13 +20,24 @@
             <Button Name="Btn_readyOrder" Content="Ready Order" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="20,20,0,0" Height="41" Click="Btn_readyOrder_Click" />
             <Button Name="Btn_billing" Content="Billing" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="20,20,0,0" Height="41" Click="Btn_billing_Click" />
         </StackPanel>
-        <Frame Grid.Column="1" HorizontalAlignment="Left" Height="489" Margin="9.6,10,0,0" VerticalAlignment="Top" Width="600" Name="Frm_pageView" Grid.RowSpan="2"/>
-        <Grid Grid.Column="1" HorizontalAlignment="Left" Height="259" Margin="9.6,8.6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="600">
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Total Orders:" VerticalAlignment="Top" Height="20" Width="95" FontSize="15" Margin="10,0,0,0" RenderTransformOrigin="0.575,-0.717"/>
-            <ScrollViewer HorizontalAlignment="Left" Margin="9,30,0,44" Width="583" Background="#FFE5E5E5"/>
-            <Button Content="Confirm" HorizontalAlignment="Left" Margin="78,220,0,0" VerticalAlignment="Top" Width="100" FontSize="15" Height="36"/>
-            <Button Content="Cancel" HorizontalAlignment="Left" Margin="413,220,0,0" VerticalAlignment="Top" Width="105" FontSize="15" Height="35"/>
+        <Frame Grid.Column="1" HorizontalAlignment="Left" Height="463" Margin="9.6,10,0,0" VerticalAlignment="Top" Width="600" Name="Frm_pageView" Grid.RowSpan="2"/>
+        <Grid Grid.Column="1" HorizontalAlignment="Left" Height="284" Margin="9.6,7.2,0,0" Grid.Row="1" VerticalAlignment="Top" Width="600">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Total Orders:" VerticalAlignment="Top" Height="20" Width="95" FontSize="15" Margin="10,8,0,0" RenderTransformOrigin="0.575,-0.717"/>
+            <Button Content="Confirm" HorizontalAlignment="Left" Margin="77,232,0,0" VerticalAlignment="Top" Width="100" FontSize="15" Height="36"/>
+            <Button Content="Cancel" HorizontalAlignment="Left" Margin="413,233,0,0" VerticalAlignment="Top" Width="105" FontSize="15" Height="35"/>
+            <Button x:Name="Btn_add" Content="+" HorizontalAlignment="Left" Margin="274,10,0,0" VerticalAlignment="Top" Width="75" FontSize="20" Click="Btn_add_Click" />
+            <Button x:Name="Btn_sub" Content="-" HorizontalAlignment="Left" Margin="386,10,0,0" VerticalAlignment="Top" Width="75" FontSize="20" Click="Btn_sub_Click" />
+            <Button x:Name="Btn_delete" Content="Delete" HorizontalAlignment="Left" Margin="497,10,0,0" VerticalAlignment="Top" Width="75" FontSize="15"  Height="30" Click="Btn_delete_Click"/>
+            <DataGrid x:Name="Grd_orders" HorizontalAlignment="Left" Height="182"  VerticalAlignment="Top" Width="590" AutoGenerateColumns="False" IsReadOnly="True" Margin="0,45,0,0">
+                <DataGrid.Columns>
+                    <!--<DataGridTextColumn Header="Number" Binding="{Binding orderID}" Width="*" />-->
+                    <DataGridTextColumn Header="Name" Binding="{Binding orderItem.name}" Width="*" />
+                    <DataGridTextColumn Header="Price" Binding="{Binding orderItem.price}" Width="*" />
+                    <DataGridTextColumn Header="quantity" Binding="{Binding quantity}" Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
+        <Button x:Name="Btn_addItem" Content="Add item" FontSize="15"  Margin="482.6,50,41.6,387.8" Click="Btn_addItem_Click" Grid.Column="1" />
 
     </Grid>
 </Window>

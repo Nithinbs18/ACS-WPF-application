@@ -14,50 +14,53 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace restaurant
+namespace menuDemo
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        ObservableCollection<Products> food;
+        ObservableCollection<Products> drink;
         ObservableCollection<Orders> orders;
-        newOrder newOrder;
-        public int orderNum = 0;
+        public int orderNum =0;
+
+
         public MainWindow()
         {
             InitializeComponent();
             var orderItem = new ObservableCollection<Orders>();
             orders = orderItem;
             Grd_orders.ItemsSource = orders;
+            var menuFood = new ObservableCollection<Products>();
+            for (int i = 1; i < 10; i++)
+            {
+                menuFood.Add(new Products { id = i, category = (i-1)%3, description = "decs" + i, name = "food" + i, price = i });
+            }
+            food = menuFood;
+
+            var menuDrink = new ObservableCollection<Products>();
+            for (int i = 1; i < 5; i++)
+            {
+                menuDrink.Add(new Products { id = i, category = (i - 1) % 3, description = "decs" + i, name = "drink" + i, price = i });
+            }
+            drink = menuDrink;
+            Grd_Menu_Food.ItemsSource = food;
+            Grd_Menu_Drink.ItemsSource = drink;
+            
         }
 
-        private void Btn_newOrder_Click(object sender, RoutedEventArgs e)
-        {
-            var newOrderPager = new newOrder();
-            Frm_pageView.Content = newOrderPager;
-            newOrder = newOrderPager;
-        }
-
-        private void Btn_readyOrder_Click(object sender, RoutedEventArgs e)
-        {
-            Frm_pageView.Content = new readyOrder();
-        }
-
-        private void Btn_billing_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         private void Btn_addItem_Click(object sender, RoutedEventArgs e)
         {
             bool contains = false;
-            Products selectedItem = (Products)newOrder.Grd_Menu_Food.SelectedItem;
+            Products selectedItem = (Products)Grd_Menu_Food.SelectedItem;
             if (selectedItem == null)
             {
-                selectedItem = (Products)newOrder.Grd_Menu_Drink.SelectedItem;
+                selectedItem= (Products)Grd_Menu_Drink.SelectedItem;
             }
-            newOrder.Grd_Menu_Food.UnselectAll();
-            newOrder.Grd_Menu_Drink.UnselectAll();
+            Grd_Menu_Food.UnselectAll();
+            Grd_Menu_Drink.UnselectAll();
             if (selectedItem == null)
             {
                 MessageBox.Show("Please selet an item to be added!", "Error");
@@ -69,8 +72,8 @@ namespace restaurant
                 {
                     if (item.orderItem == selectedItem)
                     {
-                        contains = true;
-                        break;
+                       contains = true;
+                       break;
                     }
                 }
 
@@ -85,11 +88,11 @@ namespace restaurant
                     Orders st = new Orders { orderItem = selectedItem, quantity = 1 };
                     orders.Add(st);
                 }
-
+                
             }
         }
 
-        private void Btn_add_Click(object sender, RoutedEventArgs e)
+        private void Btn_ad_Click(object sender, RoutedEventArgs e)
         {
             Orders st = (Orders)Grd_orders.SelectedItem;
             if (st == null)
@@ -101,7 +104,7 @@ namespace restaurant
             {
                 st.quantity++;
             }
-
+            
         }
 
         private void Btn_delete_Click(object sender, RoutedEventArgs e)
@@ -133,8 +136,7 @@ namespace restaurant
                     st.quantity--;
                 }
             }
-
+            
         }
-
     }
 }

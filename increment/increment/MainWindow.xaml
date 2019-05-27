@@ -13,8 +13,6 @@
                 <DataGridTextColumn Header="Name" Binding="{Binding name}" Width="*" />
                 <DataGridTextColumn Header="Qty" Binding="{Binding quantity}" Width="*" />
                 <DataGridTextColumn Header="Desc" Binding="{Binding description}" Width="*" />
-
-
             </DataGrid.Columns>
             
         </DataGrid>
