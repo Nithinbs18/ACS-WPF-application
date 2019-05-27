@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace restaurant
+namespace kitchenAndReadyOrders
 {
     public class Orders : INotifyPropertyChanged
     {
+        
         public string details { get; set; }
         public Products orderItem { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
@@ -31,8 +32,7 @@ namespace restaurant
             }
         }
         public int _status;
-        public int status
-        {
+       public int status {
             get { return _status; }
             set
             {

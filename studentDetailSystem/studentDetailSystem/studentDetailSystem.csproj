@@ -56,7 +56,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bool2String.cs" />
+    <Compile Include="InputName.cs" />
     <Compile Include="Student.cs" />
+    <Compile Include="StudentInfoStorage.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

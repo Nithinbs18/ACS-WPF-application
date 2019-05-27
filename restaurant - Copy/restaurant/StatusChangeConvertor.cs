@@ -6,32 +6,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace studentDetailSystem
+namespace restaurant
 {
-    public class Bool2String : IValueConverter
+    public class StatusChangeConvertor : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            bool what = (bool)value;
-            if (what)
+            int what = (int)value;
+            if (what == 0)
             {
-                return "submitted";
+                return "Waiting";
+            }
+            else if (what == 1)
+            {
+                return "In Progress";
             }
             else
             {
-                return "not submitted";
+                return "Ready";
             }
+
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value.ToString().Contains("not"))
-            {
-                return false;
-            }
-            else
-                return true;
+            return true;
         }
-
     }
 }

@@ -22,22 +22,47 @@ namespace studentDetailSystem
     public partial class MainWindow : Window
     {
         ObservableCollection<Student> students;
+        private bool storeData = false;
+        List<InputName> male = new List<InputName>() ;
+        List<InputName> female = new List<InputName>() ;
+        Random rnd = new Random();
 
         public MainWindow()
         {
             InitializeComponent();
-            students = GenerateStudents(20);
+
+            //var lst1 = new List<InputName> { new InputName { cat="m", name="qwe"}, new InputName { cat = "m", name = "qwert" } };
+            //StudentInfoStorage.WriteXml<List<InputName>>(lst1, "StudentsName.xml");
+            //// to write data
+            students = GenerateStudents(10);
+            //StudentInfoStorage.WriteXml<ObservableCollection<Student>>(students, "StudentsInfo.xml");
+
+            //to read data
+            //students = StudentInfoStorage.ReadXml<ObservableCollection<Student>>("StudentsInfo.xml");
+            //if (students == null)
+            //    students = new ObservableCollection<Student>();
+
+
+
         }
 
         private ObservableCollection<Student> GenerateStudents(int cnt)
         {
-            var lst = new ObservableCollection<Student>();
 
+            //for (int i = 0; i < cnt; i++)
+            //{
+            //    students.Add(new Student { îd = i, FirstName = "firstname" + i, lastName = $"LName"+i, hobbies = "hobbies" });
+            //}
+
+
+            var lstInput = StudentInfoStorage.ReadXml<List<InputName>>("StudentsName.xml");
+            male = (from n in lstInput where n.cat == "m" select n).ToList();
+            female = (from n in lstInput where n.cat == "f" select n).ToList();
+            var lst = new ObservableCollection<Student>();
             for (int i = 0; i < cnt; i++)
             {
-                lst.Add(new Student { îd = i, FirstName = "firstname" + i, lastName = $"LName"+i, hobbies = "hobbies" });
+                lst.Add(new Student { îd = i,  FirstName = female[rnd.Next(female.Count)].name + i, lastName = $"lName{i}", hobbies = "the hobbies" });
             }
-
             return lst;
         }
 
@@ -83,6 +108,24 @@ namespace studentDetailSystem
                 Lbx_students.ItemsSource = results;
             }
             
+        }
+        private void Btn_task_Click(object sender, RoutedEventArgs e)
+        {
+            ((Student)Lbx_students.SelectedItem).taskOk = !((Student)Lbx_students.SelectedItem).taskOk;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            
+            if (storeData)
+            {
+                StudentInfoStorage.WriteXml<ObservableCollection<Student>>(students, "StudentsInfo.xml");
+            }
+        }
+
+        private void Tbx_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            storeData = true;
         }
     }
 }

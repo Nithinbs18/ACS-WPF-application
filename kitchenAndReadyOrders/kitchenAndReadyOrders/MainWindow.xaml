@@ -1,0 +1,32 @@
+﻿<Window x:Class="kitchenAndReadyOrders.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:kitchenAndReadyOrders"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="702.597" Width="600">
+    <Grid>
+        <Grid.Resources>
+            <local:StatusChangeConvertor x:Key="cB2S" />
+        </Grid.Resources>
+        <DataGrid Name="Grd_kitchen" HorizontalAlignment="Left" Height="595" Margin="10,10,0,0" VerticalAlignment="Top" Width="574" AutoGenerateColumns="False" IsReadOnly="True" FontSize="15">
+            <DataGrid.Columns>
+                <!--<DataGridTextColumn Header="Number" Binding="{Binding orderID}" Width="*" />-->
+                <DataGridTextColumn Header="Name" Binding="{Binding orderItem.name}" Width="*" />
+                <DataGridTextColumn Header="details" Binding="{Binding details}" Width="*"  />
+                <DataGridTextColumn Header="quantity" Binding="{Binding quantity}" Width="*" />
+                <!--<DataGridTextColumn  >-->
+                    <DataGridTemplateColumn Header="Status" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                            <Button Name="Btn_status" Background="White" BorderBrush="White"  Content="{Binding status, Converter={StaticResource cB2S }}" Click="Btn_status_Click"/>
+                        </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                <!--</DataGridTextColumn>-->
+            </DataGrid.Columns>
+        </DataGrid>
+       
+    </Grid>
+</Window>
