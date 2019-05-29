@@ -23,6 +23,9 @@ namespace restaurant
     {
 
         ObservableCollection<Orders> newOrders;
+        int orderTableNo;
+        int newOrderNo = ++MainWindow.orderNo;
+        bool orderNoSet;
         public newOrder()
         {
             InitializeComponent();
@@ -32,14 +35,14 @@ namespace restaurant
             var menuFood = new ObservableCollection<Products>();
             for (int i = 1; i < 10; i++)
             {
-                menuFood.Add(new Products { id = i, category = (i - 1) % 3, description = "decs" + i, name = "food" + i, price = i });
+                menuFood.Add(new Products { id = i, category = (i - 1) % 3, description = "xxxxxxxxxxx" + i, name = "food" + i, price = i });
             }
             MainWindow.food = menuFood;
 
             var menuDrink = new ObservableCollection<Products>();
             for (int i = 1; i < 5; i++)
             {
-                menuDrink.Add(new Products { id = i, category = (i - 1) % 3, description = "decs" + i, name = "drink" + i, price = i });
+                menuDrink.Add(new Products { id = i, category = (i - 1) % 3, description = "yyyyyyyyyyyy" + i, name = "drink" + i, price = i });
             }
             MainWindow.drink = menuDrink;
             Grd_Menu_Food.ItemsSource = MainWindow.food;
@@ -50,43 +53,51 @@ namespace restaurant
         private void Btn_addItem_Click(object sender, RoutedEventArgs e)
         {
             bool contains = false;
-            Products selectedItem = (Products)Grd_Menu_Food.SelectedItem;
-            if (selectedItem == null)
+            if (orderNoSet)
             {
-                selectedItem = (Products)Grd_Menu_Drink.SelectedItem;
-            }
-            Grd_Menu_Food.UnselectAll();
-            Grd_Menu_Drink.UnselectAll();
-            if (selectedItem == null)
-            {
-                MessageBox.Show("Please selet an item to be added!", "Error");
-                return;
+                Products selectedItem = (Products)Grd_Menu_Food.SelectedItem;
+                if (selectedItem == null)
+                {
+                    selectedItem = (Products)Grd_Menu_Drink.SelectedItem;
+                }
+                Grd_Menu_Food.UnselectAll();
+                Grd_Menu_Drink.UnselectAll();
+                if (selectedItem == null)
+                {
+                    MessageBox.Show("Please selet an item to be added!", "Error");
+                    return;
+                }
+                else
+                {
+                    foreach (var item in MainWindow.orders)
+                    {
+                        if (item.orderItem == selectedItem)
+                        {
+                            contains = true;
+                            break;
+                        }
+                    }
+
+                    if (contains)
+                    {
+                        MessageBox.Show("Item already in order list", "Error");
+                        return;
+                    }
+
+                    else
+                    {
+                        Orders st = new Orders { orderItem = selectedItem, quantity = 1, tableNo = this.orderTableNo, orderNo = newOrderNo };
+                        newOrders.Add(st);
+                        MainWindow.orders.Add(st);
+                    }
+
+                }
             }
             else
             {
-                foreach (var item in MainWindow.orders)
-                {
-                    if (item.orderItem == selectedItem)
-                    {
-                        contains = true;
-                        break;
-                    }
-                }
-
-                if (contains)
-                {
-                    MessageBox.Show("Item already in order list", "Error");
-                    return;
-                }
-
-                else
-                {
-                    Orders st = new Orders { orderItem = selectedItem, quantity = 1 };
-                    newOrders.Add(st);
-                    MainWindow.orders.Add(st);
-                }
-
+                MessageBox.Show("Please select a table!", "Error");
             }
+
         }
 
         private void Btn_ad_Click(object sender, RoutedEventArgs e)
@@ -147,5 +158,40 @@ namespace restaurant
 
         }
 
+
+        private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
+        {
+            //Console.WriteLine(Cbx_tableNo.SelectedValue);
+            Console.WriteLine(1);
+            Console.WriteLine(Cbx_tableNo.SelectedValue);
+        }
+
+        private void Cbx_tableNo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var tblNo = Cbx_tableNo.SelectedValue.ToString();
+            Console.WriteLine(tblNo);
+            Cbx_tableNo.IsEnabled = false;
+
+            switch (tblNo)
+            {
+                case "System.Windows.Controls.ComboBoxItem: Table no. 1":
+                    this.orderTableNo = 1;
+                    break;
+                case "System.Windows.Controls.ComboBoxItem: Table no. 2":
+                    this.orderTableNo = 2;
+                    break;
+                case "System.Windows.Controls.ComboBoxItem: Table no. 3":
+                    this.orderTableNo = 3;
+                    break;
+                case "System.Windows.Controls.ComboBoxItem: Table no. 4":
+                    this.orderTableNo = 4;
+                    break;
+                //default:
+                //    MessageBox.Show("Please a table!","Error",MessageBoxButton.OK);
+                //    break;
+            }
+            Tbx_newOrderNo.Text = newOrderNo.ToString();
+            this.orderNoSet = true;
+        }
     }
 }

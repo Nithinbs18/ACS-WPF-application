@@ -52,16 +52,16 @@ namespace studentDetailSystem
             //for (int i = 0; i < cnt; i++)
             //{
             //    students.Add(new Student { îd = i, FirstName = "firstname" + i, lastName = $"LName"+i, hobbies = "hobbies" });
-            //}
+            //}rnd.Next(female.Count)
 
 
             var lstInput = StudentInfoStorage.ReadXml<List<InputName>>("StudentsName.xml");
             male = (from n in lstInput where n.cat == "m" select n).ToList();
             female = (from n in lstInput where n.cat == "f" select n).ToList();
             var lst = new ObservableCollection<Student>();
-            for (int i = 0; i < cnt; i++)
+            for (int i = 0; i < 5; i++)
             {
-                lst.Add(new Student { îd = i,  FirstName = female[rnd.Next(female.Count)].name + i, lastName = $"lName{i}", hobbies = "the hobbies" });
+                lst.Add(new Student { îd = i, FirstName = female[i].name ,  lastName = $"lName{i}", hobbies = "the hobbies" });
             }
             return lst;
         }
@@ -126,6 +126,14 @@ namespace studentDetailSystem
         private void Tbx_TextChanged(object sender, TextChangedEventArgs e)
         {
             storeData = true;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var win = new W_quiz();
+            win.Owner = this;
+            win.Show();
+            Visibility = Visibility.Hidden; // hides the 1st window
         }
     }
 }

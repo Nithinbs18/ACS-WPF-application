@@ -10,33 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace restaurant
+namespace kitchenAndReadyOrders
 {
     /// <summary>
-    /// Interaction logic for readyOrder.xaml
+    /// Interaction logic for Ready.xaml
     /// </summary>
-    public partial class readyOrder : Page
+    public partial class Ready : Window
     {
-        public readyOrder()
+        public Ready()
         {
             InitializeComponent();
+            Grd_readyOrders.ItemsSource = MainWindow.readyOrders;
         }
 
         private void Btn_ready_Click(object sender, RoutedEventArgs e)
         {
-            if (Btn_ready.Content == "Delivered")
+            if ((Grd_readyOrders.SelectedItem as Orders).status < 3)
             {
-                Btn_ready.Content = "Closed order";
-                Btn_ready.IsEnabled = false;
+                (Grd_readyOrders.SelectedItem as Orders).status++;
+                Console.WriteLine((Grd_readyOrders.SelectedItem as Orders).status);
             }
-            else
-            {
-                Btn_ready.Content = "Delivered";
-            }
-            
         }
     }
 }

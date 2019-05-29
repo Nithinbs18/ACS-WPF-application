@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:restaurant"
         mc:Ignorable="d"
         Title="Kitchen" Height="641.127" Width="597.183">
-    <Grid>
+    <Grid Margin="0,0,3.4,0.2">
         <Grid.Resources>
             <local:StatusChangeConvertor x:Key="cB2S" />
         </Grid.Resources>
-        <DataGrid Name="Grd_kitchen" HorizontalAlignment="Left" Height="595" Margin="10,10,-0.2,-0.2" VerticalAlignment="Top" Width="575" AutoGenerateColumns="False" IsReadOnly="True" FontSize="15">
+        <DataGrid Name="Grd_kitchen" HorizontalAlignment="Left" Height="591" Margin="10,10,0,0" VerticalAlignment="Top" Width="567" AutoGenerateColumns="False" IsReadOnly="True" FontSize="15">
             <DataGrid.Columns>
                 <!--<DataGridTextColumn Header="Number" Binding="{Binding orderID}" Width="*" />-->
                 <DataGridTextColumn Header="Name" Binding="{Binding orderItem.name}" Width="*" />

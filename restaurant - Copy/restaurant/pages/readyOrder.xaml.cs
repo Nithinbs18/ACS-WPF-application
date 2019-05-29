@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,20 +16,23 @@ using System.Windows.Shapes;
 namespace restaurant
 {
     /// <summary>
-    /// Interaction logic for Kitchen.xaml
+    /// Interaction logic for readyOrder.xaml
     /// </summary>
-    public partial class Kitchen : Window
+    public partial class readyOrder : Page
     {
-       
-        public Kitchen()
+        public readyOrder()
         {
             InitializeComponent();
-            //removeMethod();
-            Grd_kitchen.ItemsSource = MainWindow.orders;
+            Grd_readyOrders.ItemsSource = MainWindow.readyOrders;
         }
-        private void Btn_status_Click(object sender, RoutedEventArgs e)
+
+        private void Btn_ready_Click(object sender, RoutedEventArgs e)
         {
-            (Grd_kitchen.SelectedItem as Orders).status++;
+            if ((Grd_readyOrders.SelectedItem as Orders).status < 3)
+            {
+                (Grd_readyOrders.SelectedItem as Orders).status++;
+                Console.WriteLine((Grd_readyOrders.SelectedItem as Orders).status);
+            }
         }
     }
 }

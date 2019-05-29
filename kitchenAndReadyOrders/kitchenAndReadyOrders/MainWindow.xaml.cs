@@ -18,7 +18,8 @@ namespace kitchenAndReadyOrders
 {
     public partial class MainWindow : Window
     {
-        ObservableCollection<Orders> orders;
+        public static ObservableCollection<Orders> orders = new ObservableCollection<Orders>();
+        public static ObservableCollection<Orders> readyOrders = new ObservableCollection<Orders>();
         public MainWindow()
         {
             InitializeComponent();
@@ -45,7 +46,26 @@ namespace kitchenAndReadyOrders
 
         private void Btn_status_Click(object sender, RoutedEventArgs e)
         {
-            (Grd_kitchen.SelectedItem as Orders).status++;
+            if ((Grd_kitchen.SelectedItem as Orders).status < 2)
+            {
+                (Grd_kitchen.SelectedItem as Orders).status++;
+                if ((Grd_kitchen.SelectedItem as Orders).status == 2)
+                {
+                    if (!readyOrders.Contains((Grd_kitchen.SelectedItem as Orders)))
+                    {
+                        readyOrders.Add((Grd_kitchen.SelectedItem as Orders));
+                        orders.Remove((Grd_kitchen.SelectedItem as Orders));
+                    }
+                }
+                //Console.WriteLine((Grd_kitchen.SelectedItem as Orders).status);
+
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var ro = new Ready();
+            ro.Show();
         }
     }
 }

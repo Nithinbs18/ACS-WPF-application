@@ -9,7 +9,18 @@ namespace restaurant
 {
     public class Orders : INotifyPropertyChanged
     {
-        public string details { get; set; }
+        public int _orderNo;
+        public int orderNo
+        {
+            get { return _orderNo; }
+            set
+            {
+                _orderNo = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("details"));
+            }
+        }
+        public int tableNo { get; set; }
+        
         public Products orderItem { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(PropertyChangedEventArgs e)
@@ -17,6 +28,16 @@ namespace restaurant
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, e);
+            }
+        }
+        public string _details;
+        public string details
+        {
+            get { return _details; }
+            set
+            {
+                _details = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("details"));
             }
         }
 

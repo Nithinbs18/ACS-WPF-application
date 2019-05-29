@@ -11,28 +11,28 @@
     <Grid Margin="10,10,4,10">
         <StackPanel HorizontalAlignment="Left" Height="42" Margin="10,10,0,0" VerticalAlignment="Top" Orientation="Horizontal" Width="566">
             <TextBlock HorizontalAlignment="Left" Margin="20,0,0,0" TextWrapping="Wrap" Text="Table Number:" VerticalAlignment="Top" Height="32" Width="118" FontSize="15"/>
-            <ComboBox Margin="15,0,15,9.6" Width="251">
-                <ComboBoxItem>Table no. 1</ComboBoxItem>
-                <ComboBoxItem>Table no. 2</ComboBoxItem>
-                <ComboBoxItem>Table no. 3</ComboBoxItem>
-                <ComboBoxItem>Table no. 4</ComboBoxItem>
+            <ComboBox FontSize="15" Name="Cbx_tableNo" Margin="15,0,15,9.6" Width="251" SelectionChanged="Cbx_tableNo_SelectionChanged">
+                <ComboBoxItem FontSize="15">Table no. 1</ComboBoxItem>
+                <ComboBoxItem FontSize="15">Table no. 2</ComboBoxItem>
+                <ComboBoxItem FontSize="15">Table no. 3</ComboBoxItem>
+                <ComboBoxItem FontSize="15">Table no. 4</ComboBoxItem>
             </ComboBox>
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" Height="42" Margin="7,52,0,0" VerticalAlignment="Top" Orientation="Horizontal" Width="569" RenderTransformOrigin="0.674,0.678">
-            <TextBlock HorizontalAlignment="Left" Margin="20,0,0,0" TextWrapping="Wrap" Text="Order Number:" VerticalAlignment="Top" Height="38" Width="121" FontSize="15"/>
-            <TextBox  HorizontalAlignment="Left" Height="38"  TextWrapping="Wrap" VerticalAlignment="Top" Width="251" Margin="15,0,15,0"  />
+            <TextBlock HorizontalAlignment="Left" Margin="20,0,0,0" TextWrapping="Wrap" Text="Order Number:" VerticalAlignment="Top" Height="32" Width="121" FontSize="15"/>
+            <TextBox FontSize="15" x:Name="Tbx_newOrderNo"  HorizontalAlignment="Left" Height="32"  TextWrapping="Wrap" VerticalAlignment="Top" Width="251" Margin="15,0,15,0"  />
             <Button x:Name="Btn_addItem" Content="Add Item" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Top" Width="143" Height="32" Click="Btn_addItem_Click"/>
         </StackPanel>
         <TabControl HorizontalAlignment="Left" Height="248" Margin="10,99,0,0" VerticalAlignment="Top" Width="576">
             <TabItem Header="Food" FontSize="15">
                 <!--<Grid Background="#FFE5E5E5" Margin="0,0,-6.8,-6.8">-->
-                <DataGrid IsReadOnly="True" x:Name="Grd_Menu_Food" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="216"  VerticalAlignment="Top" Width="567" AutoGenerateColumns="False" Margin="0,0,0,-0.8">
+                <DataGrid IsReadOnly="True" x:Name="Grd_Menu_Food" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="216"  VerticalAlignment="Top" Width="567" AutoGenerateColumns="False" Margin="0,0,0,-0.8" >
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Nu." Binding="{Binding id}" Width="*" />
-                        <DataGridTextColumn Header="Name" Binding="{Binding name}" Width="*" />
-                        <DataGridTextColumn Header="Price" Binding="{Binding price}" Width="*" />
-                        <DataGridTextColumn Header="Description" Binding="{Binding description}" Width="*" />
-                        <DataGridTextColumn Header="category" Binding="{Binding category}" Width="*" />
+                        <DataGridTextColumn Header="Nu." Binding="{Binding id}" Width="*" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Name" Binding="{Binding name}" Width="*" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Price" Binding="{Binding price}" Width="*" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Description" Binding="{Binding description}" Width="*" IsReadOnly="True" />
+                        <DataGridTextColumn Header="category" Binding="{Binding category}" Width="*" IsReadOnly="True" />
 
 
                     </DataGrid.Columns>
@@ -55,12 +55,13 @@
                 <!--</Grid>-->
             </TabItem>
         </TabControl>
-        <DataGrid x:Name="Grd_orders" HorizontalAlignment="Left" Height="232" Margin="10,424,0,0" VerticalAlignment="Top" Width="566" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid x:Name="Grd_orders" HorizontalAlignment="Left" Height="232" Margin="10,424,0,0" VerticalAlignment="Top" Width="566" AutoGenerateColumns="False" IsReadOnly="False">
             <DataGrid.Columns>
                 <!--<DataGridTextColumn Header="Number" Binding="{Binding orderID}" Width="*" />-->
-                <DataGridTextColumn Header="Name" Binding="{Binding orderItem.name}" Width="*" />
-                <DataGridTextColumn Header="Price" Binding="{Binding orderItem.price}" Width="*" />
-                <DataGridTextColumn Header="quantity" Binding="{Binding quantity}" Width="*" />
+                <DataGridTextColumn Header="Name" Binding="{Binding orderItem.name}" Width="*" IsReadOnly="True" />
+                <DataGridTextColumn Header="Price" Binding="{Binding orderItem.price}" Width="*" IsReadOnly="True" />
+                <DataGridTextColumn Header="quantity" Binding="{Binding quantity}" Width="*" IsReadOnly="True" />
+                <DataGridTextColumn Header="Comment" Binding="{Binding details}" Width="*" IsReadOnly="False" />
             </DataGrid.Columns>
         </DataGrid>
         <TextBlock HorizontalAlignment="Left" Margin="10,385,0,0" TextWrapping="Wrap" Text="Total Orders:" FontSize="20" VerticalAlignment="Top" Height="34" Width="146"/>

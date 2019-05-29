@@ -55,10 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Bool2String.cs" />
-    <Compile Include="InputName.cs" />
-    <Compile Include="Student.cs" />
-    <Compile Include="StudentInfoStorage.cs" />
+    <Compile Include="class\Bool2String.cs" />
+    <Compile Include="class\InputName.cs" />
+    <Compile Include="class\Question.cs" />
+    <Compile Include="class\Student.cs" />
+    <Compile Include="class\StudentInfoStorage.cs" />
+    <Compile Include="W_quiz.xaml.cs">
+      <DependentUpon>W_quiz.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -71,6 +75,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="W_quiz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

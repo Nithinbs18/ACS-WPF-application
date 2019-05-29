@@ -21,9 +21,13 @@ namespace restaurant
             {
                 return "In Progress";
             }
-            else
+            else if (what == 2)
             {
                 return "Ready";
+            }
+            else
+            {
+                return "Delivered";
             }
 
         }
