@@ -1,4 +1,5 @@
-﻿using System;
+﻿using restaurant;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -87,6 +88,8 @@ namespace restaurant
                     else
                     {
                         Orders st = new Orders { orderItem = selectedItem, quantity = 1, tableNo = this.orderTableNo, orderNo = newOrderNo };
+                        TableNo tNo = new TableNo { tableNo=this.orderTableNo, tableOrderNo= this.newOrderNo, orderClosed=false};
+                        MainWindow.tableOrder.Add(tNo);
                         newOrders.Add(st);
                         MainWindow.orders.Add(st);
                     }
@@ -110,6 +113,11 @@ namespace restaurant
             }
             else
             {
+                if (st.status == 2)
+                {
+                    MessageBox.Show("Cannot make changes to this item, Please add it from the menu!!", "Error");
+                    return;
+                }
                 st.quantity++;
             }
 

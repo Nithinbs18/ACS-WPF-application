@@ -32,6 +32,12 @@ namespace restaurant
             {
                 (Grd_readyOrders.SelectedItem as Orders).status++;
                 Console.WriteLine((Grd_readyOrders.SelectedItem as Orders).status);
+                MainWindow.billOrder.Add((Grd_readyOrders.SelectedItem as Orders));
+                MainWindow.readyOrders.Remove((Grd_readyOrders.SelectedItem as Orders));
+                //foreach (var item in MainWindow.billOrder)
+                //{
+                //    Console.WriteLine(item);
+                //}  
             }
         }
     }

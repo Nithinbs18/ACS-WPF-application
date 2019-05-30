@@ -16,7 +16,7 @@ namespace restaurant
             set
             {
                 _orderNo = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("details"));
+                OnPropertyChanged(new PropertyChangedEventArgs("orderNo"));
             }
         }
         public int tableNo { get; set; }

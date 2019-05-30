@@ -9,6 +9,9 @@
 
     <!--<Grid Margin="0,0,0,9.4">-->
     <Grid Margin="10,10,4,10">
+        <Grid.Resources>
+            <local:StatusChangeConvertor x:Key="cI2S" />
+        </Grid.Resources>
         <StackPanel HorizontalAlignment="Left" Height="42" Margin="10,10,0,0" VerticalAlignment="Top" Orientation="Horizontal" Width="566">
             <TextBlock HorizontalAlignment="Left" Margin="20,0,0,0" TextWrapping="Wrap" Text="Table Number:" VerticalAlignment="Top" Height="32" Width="118" FontSize="15"/>
             <ComboBox FontSize="15" Name="Cbx_tableNo" Margin="15,0,15,9.6" Width="251" SelectionChanged="Cbx_tableNo_SelectionChanged">
@@ -62,6 +65,13 @@
                 <DataGridTextColumn Header="Price" Binding="{Binding orderItem.price}" Width="*" IsReadOnly="True" />
                 <DataGridTextColumn Header="quantity" Binding="{Binding quantity}" Width="*" IsReadOnly="True" />
                 <DataGridTextColumn Header="Comment" Binding="{Binding details}" Width="*" IsReadOnly="False" />
+                <DataGridTemplateColumn Header="Status" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock  Text="{Binding status, Converter={StaticResource cI2S }}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <TextBlock HorizontalAlignment="Left" Margin="10,385,0,0" TextWrapping="Wrap" Text="Total Orders:" FontSize="20" VerticalAlignment="Top" Height="34" Width="146"/>
