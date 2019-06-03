@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,22 +21,42 @@ namespace restaurant
     /// <summary>
     /// Interaction logic for billing.xaml
     /// </summary>
-    public partial class billing
+    public partial class billing : INotifyPropertyChanged
     {
-        int orderTableNo;
-        public static ObservableCollection<Orders> finalBillOrder = new ObservableCollection<Orders>();
+        int orderTableNo = 0;
+        int TableOrderNo;
+        float sum;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(PropertyChangedEventArgs e)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, e);
+            }
+        }
+        public String _forOrderno;
+        public String forOrderno
+        {
+            get { return _forOrderno; }
+            set
+            {
+                _forOrderno = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("forOrderno"));
+            }
+        }
 
         public billing()
         {
             InitializeComponent();
-            Grd_billOrders.ItemsSource = finalBillOrder;
+            Grd_billOrders.ItemsSource = MainWindow.finalBillOrder;
+            //Tbk_orderno.Text = this.forOrderno;
         }
 
         private void Cbx_tableNo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var tblNo = Cbx_tableNo.SelectedValue.ToString();
-            Console.WriteLine(tblNo);
-
+            //Console.WriteLine(tblNo);
             switch (tblNo)
             {
                 case "System.Windows.Controls.ComboBoxItem: Table no. 1":
@@ -50,20 +71,59 @@ namespace restaurant
                 case "System.Windows.Controls.ComboBoxItem: Table no. 4":
                     this.orderTableNo = 4;
                     break;
-                default:
-                    MessageBox.Show("Please a table!", "Error", MessageBoxButton.OK);
-                    break;
             }
-            finalBillOrder.Clear();
-            foreach (Orders item in MainWindow.billOrder)
+            MainWindow.finalBillOrder.Clear();
+            var tot = 0;
+            foreach (TableNo item in MainWindow.tableOrder)
             {
-                if (item.tableNo == this.orderTableNo)
+                if (item.tableNo == this.orderTableNo && !item.orderClosed)
                 {
-                    finalBillOrder.Add(item);
+                    this.TableOrderNo = item.tableOrderNo;
+                    Console.WriteLine(this.TableOrderNo);
+                    Tbk_orderno.Text = item.tableOrderNo.ToString();
+                }
+            }
+            foreach (Orders order in MainWindow.billOrder)
+            {
+                if (order.orderNo == this.TableOrderNo)
+                {
+                    MainWindow.finalBillOrder.Add(order);
+                    Tbk_orderno.Text = order.orderNo.ToString();
+                    var q = order.quantity;
+                    var p = order.orderItem.price;
+                    tot += q * p;
+                }
+                this.sum = tot;
+                Tbx_sum.Text = this.sum.ToString();
+                if (MainWindow.finalBillOrder.Count == 0)
+                {
+                    Tbk_orderno.Text = "";
                 }
             }
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.orderTableNo == 0)
+            {
+                MessageBox.Show("Please select a Table to close the order!", "Error", MessageBoxButton.OK);
+            }
+            else
+            {
+                foreach (var table in MainWindow.tableOrder)
+                {
+                    if (table.tableNo == this.orderTableNo)
+                    {
+                        table.orderClosed = true;
+                        MessageBox.Show("Order close sucessfully.","Closed", MessageBoxButton.OK);
+                        MainWindow.tableOrder.Remove(table);
+                        MainWindow.finalBillOrder.Clear();
+                        break;
+                    }
+                }
+            }
+
+        }
     }
 }
 

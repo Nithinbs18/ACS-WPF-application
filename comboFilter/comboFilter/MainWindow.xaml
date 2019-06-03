@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="641.127" Width="597.183">
     <Grid>
-        <DataGrid Name="Grd_billOrders" HorizontalAlignment="Left" Height="547" Margin="10,58,0,0" VerticalAlignment="Top" Width="574" AutoGenerateColumns="False" IsReadOnly="True" FontSize="15">
+        <DataGrid Name="Grd_billOrders" HorizontalAlignment="Left" Height="393" Margin="10,103,0,0" VerticalAlignment="Top" Width="574" AutoGenerateColumns="False" IsReadOnly="True" FontSize="15">
             <DataGrid.Columns >
                 <DataGridTextColumn Header="Name" Binding="{Binding name}" Width="*" />
                 <DataGridTextColumn Header="quantity" Binding="{Binding quantity}" Width="*" />
@@ -23,5 +23,12 @@
                 <ComboBoxItem FontSize="15" Content="Table no. 4"/>
             </ComboBox>
         </StackPanel>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="118" FontSize="15" Margin="10,53,0,0"><Run Text="Order"/><Run Text=" Number:"/></TextBlock>
+        <TextBox Name="Tbk_orderNo" HorizontalAlignment="Left" Height="32" Margin="128,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171"/>
+        <StackPanel HorizontalAlignment="Left" Height="39" Margin="10,501,0,0" VerticalAlignment="Top" Width="570" Orientation="Horizontal">
+            <Line X1="0" Y1="20" X2="600" Y2="20" Stroke="Black" StrokeThickness="2" />
+        </StackPanel>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Total:" VerticalAlignment="Top" Height="32" Width="44" FontSize="15" Margin="389,540,0,0"/>
+        <TextBox x:Name="Tbx_sum" HorizontalAlignment="Left" Height="32" Margin="438,540,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142"/>
     </Grid>
 </Window>

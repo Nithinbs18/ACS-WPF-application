@@ -25,7 +25,8 @@ namespace restaurant
 
         ObservableCollection<Orders> newOrders;
         int orderTableNo;
-        int newOrderNo = ++MainWindow.orderNo;
+        //int newOrderNum;
+        int newOrderNum = MainWindow.orderNo;
         bool orderNoSet;
         public newOrder()
         {
@@ -49,6 +50,62 @@ namespace restaurant
             Grd_Menu_Food.ItemsSource = MainWindow.food;
             Grd_Menu_Drink.ItemsSource = MainWindow.drink;
 
+        }
+
+        private void Cbx_tableNo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var tblNo = Cbx_tableNo.SelectedValue.ToString();
+            Console.WriteLine(tblNo);
+            Cbx_tableNo.IsEnabled = false;
+
+            switch (tblNo)
+            {
+                case "System.Windows.Controls.ComboBoxItem: Table no. 1":
+                    this.orderTableNo = 1;
+                    break;
+                case "System.Windows.Controls.ComboBoxItem: Table no. 2":
+                    this.orderTableNo = 2;
+                    break;
+                case "System.Windows.Controls.ComboBoxItem: Table no. 3":
+                    this.orderTableNo = 3;
+                    break;
+                case "System.Windows.Controls.ComboBoxItem: Table no. 4":
+                    this.orderTableNo = 4;
+                    break;
+                    //default:
+                    //    MessageBox.Show("Please a table!","Error",MessageBoxButton.OK);
+                    //    break;
+            }
+            this.orderNoSet = true;
+            bool set = false;
+            if (MainWindow.tableOrder.Count != 0)
+            {
+                foreach (var table in MainWindow.tableOrder)
+                {
+                    if (!table.orderClosed && table.tableNo == this.orderTableNo)
+                    {
+                        this.newOrderNum = table.tableOrderNo;
+                            set = true;
+                            Tbx_newOrderNo.Text = table.tableOrderNo.ToString();
+                            break;     
+                    }
+                }
+                if (!set)
+                {
+                    this.newOrderNum = ++MainWindow.orderNo;
+                    TableNo tNo = new TableNo { tableNo = this.orderTableNo, tableOrderNo = this.newOrderNum, orderClosed = false };
+                    MainWindow.tableOrder.Add(tNo);
+                    Tbx_newOrderNo.Text = newOrderNum.ToString();
+                    set = true;
+                }
+            }
+            else
+            {
+                this.newOrderNum = ++MainWindow.orderNo;
+                TableNo tNo = new TableNo { tableNo = this.orderTableNo, tableOrderNo = this.newOrderNum, orderClosed = false };
+                MainWindow.tableOrder.Add(tNo);
+                Tbx_newOrderNo.Text = newOrderNum.ToString();
+            }
         }
 
         private void Btn_addItem_Click(object sender, RoutedEventArgs e)
@@ -87,9 +144,7 @@ namespace restaurant
 
                     else
                     {
-                        Orders st = new Orders { orderItem = selectedItem, quantity = 1, tableNo = this.orderTableNo, orderNo = newOrderNo };
-                        TableNo tNo = new TableNo { tableNo=this.orderTableNo, tableOrderNo= this.newOrderNo, orderClosed=false};
-                        MainWindow.tableOrder.Add(tNo);
+                        Orders st = new Orders { orderItem = selectedItem, quantity = 1, tableNo = this.orderTableNo, orderNo = this.newOrderNum };
                         newOrders.Add(st);
                         MainWindow.orders.Add(st);
                     }
@@ -169,37 +224,9 @@ namespace restaurant
 
         private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
         {
-            //Console.WriteLine(Cbx_tableNo.SelectedValue);
-            Console.WriteLine(1);
-            Console.WriteLine(Cbx_tableNo.SelectedValue);
+
         }
 
-        private void Cbx_tableNo_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var tblNo = Cbx_tableNo.SelectedValue.ToString();
-            Console.WriteLine(tblNo);
-            Cbx_tableNo.IsEnabled = false;
-
-            switch (tblNo)
-            {
-                case "System.Windows.Controls.ComboBoxItem: Table no. 1":
-                    this.orderTableNo = 1;
-                    break;
-                case "System.Windows.Controls.ComboBoxItem: Table no. 2":
-                    this.orderTableNo = 2;
-                    break;
-                case "System.Windows.Controls.ComboBoxItem: Table no. 3":
-                    this.orderTableNo = 3;
-                    break;
-                case "System.Windows.Controls.ComboBoxItem: Table no. 4":
-                    this.orderTableNo = 4;
-                    break;
-                //default:
-                //    MessageBox.Show("Please a table!","Error",MessageBoxButton.OK);
-                //    break;
-            }
-            Tbx_newOrderNo.Text = newOrderNo.ToString();
-            this.orderNoSet = true;
-        }
+        
     }
 }

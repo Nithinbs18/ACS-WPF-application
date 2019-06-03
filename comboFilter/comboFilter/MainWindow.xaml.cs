@@ -24,6 +24,8 @@ namespace comboFilter
         public static ObservableCollection<Orders> billOrder = new ObservableCollection<Orders>();
         public static ObservableCollection<Orders> tmpbillOrder;
         int orderTableNo;
+        string forOrderno;
+        float sum;
         public MainWindow()
         {
             InitializeComponent();
@@ -36,7 +38,7 @@ namespace comboFilter
             var ddd = new ObservableCollection<Orders>();
             for (int i = 0; i < 4; i++)
             {
-                ddd.Add(new Orders { name = i, price = i * 10, quantity = i });
+                ddd.Add(new Orders { name = 1, price = i * 10, quantity = i*2, orderNo=i });
             }
             tmpbillOrder = ddd;
         }
@@ -65,13 +67,22 @@ namespace comboFilter
                     break;
             }
             billOrder.Clear();
+            var tot=0;
             foreach (Orders item in tmpbillOrder)
             {
+                
                 if (item.name == this.orderTableNo)
                 {
+                    this.forOrderno = item.orderNo.ToString();
+                    Tbk_orderNo.Text = this.forOrderno;
                     billOrder.Add(item);
+                    var q = item.quantity;
+                    var p = item.price;
+                    tot += q * p;
                 }
             }
+            this.sum = tot;
+            Tbx_sum.Text = this.sum.ToString();
         }
 
         public class Orders
@@ -79,6 +90,7 @@ namespace comboFilter
             public int name { get; set; }
             public int quantity { get; set; }
             public int price { get; set; }
+            public int orderNo { get; set; }
         }
     }
 }

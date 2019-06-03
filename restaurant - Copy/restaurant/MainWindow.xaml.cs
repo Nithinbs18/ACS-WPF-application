@@ -25,18 +25,20 @@ namespace restaurant
         public static ObservableCollection<Orders> readyOrders = new ObservableCollection<Orders>();
         public static ObservableCollection<Orders> billOrder = new ObservableCollection<Orders>();
         public static ObservableCollection<TableNo> tableOrder = new ObservableCollection<TableNo>();
+        public static ObservableCollection<Orders> finalBillOrder = new ObservableCollection<Orders>();
+
         public static ObservableCollection<Products> food;
         public static ObservableCollection<Products> drink;
         public static readyOrder readyPage = new readyOrder();
         public static Kitchen kit = new Kitchen();
-        public static billing billing = new billing();
-        public static int orderNo = (int.Parse(DateTime.UtcNow.ToString("yyMMdd")))*1000;
+        
+        public static int orderNo = (int.Parse(DateTime.UtcNow.ToString("yyMMdd"))) * 1000;
         public MainWindow()
         {
             InitializeComponent();
             kit.Show();
             //kit.Owner = this;
-            Console.WriteLine(orderNo);
+            //Console.WriteLine(orderNo);
         }
 
         private void Btn_newOrder_Click(object sender, RoutedEventArgs e)
@@ -52,7 +54,8 @@ namespace restaurant
 
         private void Btn_billing_Click(object sender, RoutedEventArgs e)
         {
-            Frm_pageView.Content = billing;
+        billing billing = new billing();
+        Frm_pageView.Content = billing;
         }
 
         private void Btn_kitchen_Click(object sender, RoutedEventArgs e)

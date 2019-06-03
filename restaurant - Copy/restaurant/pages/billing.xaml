@@ -10,7 +10,7 @@
 
     <Grid>
 
-        <DataGrid Name="Grd_billOrders" HorizontalAlignment="Left" Height="547" Margin="10,58,0,0" VerticalAlignment="Top" Width="574" AutoGenerateColumns="False" IsReadOnly="True" FontSize="15">
+        <DataGrid Name="Grd_billOrders" HorizontalAlignment="Left" Height="436" Margin="10,92,0,0" VerticalAlignment="Top" Width="574" AutoGenerateColumns="False" IsReadOnly="True" FontSize="15">
             <DataGrid.Columns >
                 <DataGridTextColumn Header="Name" Binding="{Binding orderItem.name}" Width="*" />
                 <DataGridTextColumn Header="quantity" Binding="{Binding quantity}" Width="*" />
@@ -26,6 +26,17 @@
                 <ComboBoxItem FontSize="15" Content="Table no. 4"/>
             </ComboBox>
         </StackPanel>
+        <TextBlock HorizontalAlignment="Left" Margin="10,53,0,0" TextWrapping="Wrap" Text="Order no. :" VerticalAlignment="Top" Height="25" Width="104" FontSize="15"/>
+        <!--<TextBlock Name="Tbk_orderno" HorizontalAlignment="Left" Margin="133,53,0,0" TextWrapping="Wrap" Text="{Binding forOrderno}" VerticalAlignment="Top" Height="25" Width="104" FontSize="15"/>-->
+        <TextBox Name="Tbk_orderno" HorizontalAlignment="Left" Margin="133,53,0,0" TextWrapping="Wrap" Text="{Binding forOrderno}" VerticalAlignment="Top" Height="25" Width="104" FontSize="15" BorderBrush="Transparent" IsReadOnly="True"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Total:" VerticalAlignment="Top" Height="32" Width="44" FontSize="15" Margin="396,561,0,0"/>
+        <TextBox x:Name="Tbx_sum" HorizontalAlignment="Left" Height="32" Margin="440,554,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" BorderBrush="Transparent" FontSize="15"/>
+        <StackPanel HorizontalAlignment="Left" Height="40" Margin="14,521,0,0" VerticalAlignment="Top" Width="566">
+            <Line X1="0" Y1="20" X2="600" Y2="20" Stroke="Black" StrokeThickness="2" Margin="0,1,0,-0.8" />
+        </StackPanel>
+        <Button FontSize="15" Content="Close Order" HorizontalAlignment="Left" Margin="463,54,0,0" VerticalAlignment="Top" Width="98" Click="Button_Click"/>
+
+
     </Grid>
 
 </Page>
