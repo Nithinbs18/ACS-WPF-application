@@ -60,6 +60,11 @@
     <Compile Include="class\Question.cs" />
     <Compile Include="class\Student.cs" />
     <Compile Include="class\StudentInfoStorage.cs" />
+    <Compile Include="Properties\ResourcesDE.Designer.cs">
+      <DependentUpon>ResourcesDE.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="W_quiz.xaml.cs">
       <DependentUpon>W_quiz.xaml</DependentUpon>
     </Compile>
@@ -94,8 +99,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Properties\ResourcesDE.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourcesDE.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

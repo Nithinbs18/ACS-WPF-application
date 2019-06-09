@@ -10,14 +10,14 @@
 
     <Grid>
 
-        <DataGrid Name="Grd_billOrders" HorizontalAlignment="Left" Height="436" Margin="10,92,0,0" VerticalAlignment="Top" Width="574" AutoGenerateColumns="False" IsReadOnly="True" FontSize="15">
+        <DataGrid Background="#FFADD9DD" Name="Grd_billOrders" HorizontalAlignment="Left" Height="396.895" Margin="10,164.232,0,0" VerticalAlignment="Top" Width="574" AutoGenerateColumns="False" IsReadOnly="True" FontSize="15">
             <DataGrid.Columns >
                 <DataGridTextColumn Header="Name" Binding="{Binding orderItem.name}" Width="*" />
                 <DataGridTextColumn Header="quantity" Binding="{Binding quantity}" Width="*" />
                 <DataGridTextColumn Header="Price" Binding="{Binding orderItem.price}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel HorizontalAlignment="Left" Height="39" Margin="10,14,0,0" VerticalAlignment="Top" Width="339" Orientation="Horizontal">
+        <StackPanel HorizontalAlignment="Left" Height="39" Margin="18.382,80.082,0,0" VerticalAlignment="Top" Width="339" Orientation="Horizontal">
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Table Number:" VerticalAlignment="Top" Height="32" Width="118" FontSize="15"/>
             <ComboBox FontSize="15" x:Name="Cbx_tableNo" Margin="0,0,0,17.2" SelectionChanged="Cbx_tableNo_SelectionChanged" Width="196">
                 <ComboBoxItem FontSize="15" Content="Table no. 1"/>
@@ -26,15 +26,17 @@
                 <ComboBoxItem FontSize="15" Content="Table no. 4"/>
             </ComboBox>
         </StackPanel>
-        <TextBlock HorizontalAlignment="Left" Margin="10,53,0,0" TextWrapping="Wrap" Text="Order no. :" VerticalAlignment="Top" Height="25" Width="104" FontSize="15"/>
+        <TextBlock HorizontalAlignment="Left" Margin="18.382,119.082,0,0" TextWrapping="Wrap" Text="Order no. :" VerticalAlignment="Top" Height="25" Width="104" FontSize="15"/>
         <!--<TextBlock Name="Tbk_orderno" HorizontalAlignment="Left" Margin="133,53,0,0" TextWrapping="Wrap" Text="{Binding forOrderno}" VerticalAlignment="Top" Height="25" Width="104" FontSize="15"/>-->
-        <TextBox Name="Tbk_orderno" HorizontalAlignment="Left" Margin="133,53,0,0" TextWrapping="Wrap" Text="{Binding forOrderno}" VerticalAlignment="Top" Height="25" Width="104" FontSize="15" BorderBrush="Transparent" IsReadOnly="True"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Total:" VerticalAlignment="Top" Height="32" Width="44" FontSize="15" Margin="396,561,0,0"/>
-        <TextBox x:Name="Tbx_sum" HorizontalAlignment="Left" Height="32" Margin="440,554,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" BorderBrush="Transparent" FontSize="15"/>
-        <StackPanel HorizontalAlignment="Left" Height="40" Margin="14,521,0,0" VerticalAlignment="Top" Width="566">
+        <TextBox Name="Tbk_orderno" HorizontalAlignment="Left" Margin="141.382,119.082,0,0" TextWrapping="Wrap" Text="{Binding forOrderno}" VerticalAlignment="Top" Height="25" Width="104" FontSize="15" BorderBrush="Transparent" IsReadOnly="True"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Total:" VerticalAlignment="Top" Height="32" Width="44" FontSize="15" Margin="396,599.127,0,0"/>
+        <TextBox x:Name="Tbx_sum" HorizontalAlignment="Left" Height="32" Margin="440,599.127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" BorderBrush="Transparent" FontSize="15"/>
+        <StackPanel HorizontalAlignment="Left" Height="40" Margin="14,566.127,0,0" VerticalAlignment="Top" Width="566">
             <Line X1="0" Y1="20" X2="600" Y2="20" Stroke="Black" StrokeThickness="2" Margin="0,1,0,-0.8" />
         </StackPanel>
-        <Button FontSize="15" Content="Close Order" HorizontalAlignment="Left" Margin="463,54,0,0" VerticalAlignment="Top" Width="98" Click="Button_Click"/>
+        <Button Background="#FF151782" Foreground="#FFF9F0F0" FontSize="15" Content="Close Order" HorizontalAlignment="Left" Margin="471.382,120.067,0,0" VerticalAlignment="Top" Width="98" Click="Button_Click"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Euros" VerticalAlignment="Top" Height="32" Width="44" FontSize="15" Margin="524,599.127,0,0" RenderTransformOrigin="2.965,0.696"/>
+        <TextBlock HorizontalAlignment="Left" Margin="18.382,36.891,0,0" TextWrapping="Wrap" Text="Bill table" FontSize="20" VerticalAlignment="Top" Height="34" Width="146" FontWeight="Bold" FontStyle="Italic" TextDecorations="Underline"/>
 
 
     </Grid>

@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Forms;
 
 namespace restaurant
 {
@@ -26,6 +27,8 @@ namespace restaurant
         int orderTableNo = 0;
         int TableOrderNo;
         float sum;
+        ObservableCollection<printBillData> BillData = new ObservableCollection<printBillData>();
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(PropertyChangedEventArgs e)
@@ -73,7 +76,7 @@ namespace restaurant
                     break;
             }
             MainWindow.finalBillOrder.Clear();
-            var tot = 0;
+            float tot = 0;
             foreach (TableNo item in MainWindow.tableOrder)
             {
                 if (item.tableNo == this.orderTableNo && !item.orderClosed)
@@ -92,6 +95,7 @@ namespace restaurant
                     var q = order.quantity;
                     var p = order.orderItem.price;
                     tot += q * p;
+                    this.BillData.Add(new printBillData { Name= order.orderItem.name, Quantity=order.quantity, Price=order.orderItem.price});
                 }
                 this.sum = tot;
                 Tbx_sum.Text = this.sum.ToString();
@@ -106,7 +110,7 @@ namespace restaurant
         {
             if (this.orderTableNo == 0)
             {
-                MessageBox.Show("Please select a Table to close the order!", "Error", MessageBoxButton.OK);
+                System.Windows.Forms.MessageBox.Show("Please select a Table to close the order!", "Error", MessageBoxButtons.OK);
             }
             else
             {
@@ -115,9 +119,14 @@ namespace restaurant
                     if (table.tableNo == this.orderTableNo)
                     {
                         table.orderClosed = true;
-                        MessageBox.Show("Order close sucessfully.","Closed", MessageBoxButton.OK);
+                        var bill = System.Windows.Forms.MessageBox.Show("Order close sucessfully. Do you what to print the bill?","Closed", MessageBoxButtons.YesNo);
+                        if (bill == DialogResult.Yes)
+                        {
+                            PrintBill printBill = new PrintBill(this.BillData, this.TableOrderNo.ToString(), this.sum.ToString());
+                        }
                         MainWindow.tableOrder.Remove(table);
                         MainWindow.finalBillOrder.Clear();
+                        this.BillData.Clear();
                         break;
                     }
                 }

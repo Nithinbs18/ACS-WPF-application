@@ -6,18 +6,18 @@
         xmlns:local="clr-namespace:restaurant"
         mc:Ignorable="d"
         Title="Kitchen" Height="641.127" Width="597.183">
-    <Grid Margin="0,0,3.4,0.2">
+    <Grid Margin="3,0,0.4,0.2">
         <Grid.Resources>
             <local:StatusChangeConvertor x:Key="cB2S" />
         </Grid.Resources>
-        <DataGrid Name="Grd_kitchen" HorizontalAlignment="Left" Height="591" Margin="10,10,0,0" VerticalAlignment="Top" Width="567" AutoGenerateColumns="False" IsReadOnly="True" FontSize="15">
+        <DataGrid Background="#FFADD9DD" Name="Grd_kitchen" HorizontalAlignment="Left" Height="513" Margin="10,88,0,0" VerticalAlignment="Top" Width="567" AutoGenerateColumns="False" IsReadOnly="True" FontSize="15">
             <DataGrid.Columns>
                 <!--<DataGridTextColumn Header="Number" Binding="{Binding orderID}" Width="*" />-->
                 <DataGridTextColumn Header="Name" Binding="{Binding orderItem.name}" Width="*" />
-                <DataGridTextColumn Header="details" Binding="{Binding details}" Width="*"  />
-                <DataGridTextColumn Header="quantity" Binding="{Binding quantity}" Width="*" />
+                <DataGridTextColumn Header="Details" Binding="{Binding details}" Width="2*"  />
+                <DataGridTextColumn Header="Quantity" Binding="{Binding quantity}" Width="0.55*" />
                 <!--<DataGridTextColumn  >-->
-                <DataGridTemplateColumn Header="Status" Width="*">
+                <DataGridTemplateColumn Header="Status" Width="0.8*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Name="Btn_status" Background="White" BorderBrush="White"  Content="{Binding status, Converter={StaticResource cB2S }}" Click="Btn_status_Click"/>
@@ -27,5 +27,10 @@
                 <!--</DataGridTextColumn>-->
             </DataGrid.Columns>
         </DataGrid>
+        <DockPanel HorizontalAlignment="Center" Height="12" LastChildFill="False" Margin="0.192,0,0,0" VerticalAlignment="Top" Width="587.191" Background="#FF151782"/>
+        <DockPanel HorizontalAlignment="Center" Height="12" LastChildFill="False" Margin="-17.808,71,0,0" VerticalAlignment="Top" Width="605.191" Background="#FF151782"/>
+        <DockPanel HorizontalAlignment="Center" Height="59" LastChildFill="False" Margin="0.192,12,0,0" VerticalAlignment="Top" Width="587.191" Background="#FF11CADC"/>
+        <TextBlock x:Name="Tbk_welcome" TextWrapping="Wrap" VerticalAlignment="Top" Margin="185,10,159,0" Height="49" FontFamily="Forte" FontWeight="Bold" TextDecorations="Underline" FontSize="30"><Run Text="High "/><Run Text="on "/><Run Text="flavours"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="307,47,0,0" FontSize="15" Height="17" Width="119" FontFamily="Script MT Bold"><Run Text="experience India"/><Run Text="..."/></TextBlock>
     </Grid>
 </Window>

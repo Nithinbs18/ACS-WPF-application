@@ -33,22 +33,10 @@ namespace restaurant
             InitializeComponent();
             var orderItem = new ObservableCollection<Orders>();
             newOrders = orderItem;
-            Grd_orders.ItemsSource = orderItem;
-            var menuFood = new ObservableCollection<Products>();
-            for (int i = 1; i < 10; i++)
-            {
-                menuFood.Add(new Products { id = i, category = (i - 1) % 3, description = "xxxxxxxxxxx" + i, name = "food" + i, price = i });
-            }
-            MainWindow.food = menuFood;
-
-            var menuDrink = new ObservableCollection<Products>();
-            for (int i = 1; i < 5; i++)
-            {
-                menuDrink.Add(new Products { id = i, category = (i - 1) % 3, description = "yyyyyyyyyyyy" + i, name = "drink" + i, price = i });
-            }
-            MainWindow.drink = menuDrink;
+            Grd_orders.ItemsSource = orderItem;          
             Grd_Menu_Food.ItemsSource = MainWindow.food;
             Grd_Menu_Drink.ItemsSource = MainWindow.drink;
+            Grd_Menu_starter.ItemsSource = MainWindow.starters;
 
         }
 
@@ -117,9 +105,14 @@ namespace restaurant
                 if (selectedItem == null)
                 {
                     selectedItem = (Products)Grd_Menu_Drink.SelectedItem;
+                    if (selectedItem == null)
+                    {
+                        selectedItem = (Products)Grd_Menu_starter.SelectedItem;
+                    }
                 }
                 Grd_Menu_Food.UnselectAll();
                 Grd_Menu_Drink.UnselectAll();
+                Grd_Menu_starter.UnselectAll();
                 if (selectedItem == null)
                 {
                     MessageBox.Show("Please selet an item to be added!", "Error");
@@ -221,12 +214,47 @@ namespace restaurant
 
         }
 
-
         private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
         {
 
         }
 
-        
+
+        private void Tbx_filter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string filter = Tbx_filter.Text.ToLower();
+            if (filter == "")
+            {
+                Grd_Menu_Food.ItemsSource = MainWindow.food;
+                Grd_Menu_Drink.ItemsSource = MainWindow.drink;
+                Grd_Menu_starter.ItemsSource = MainWindow.starters;
+            }
+
+            else
+            {
+                var results = from s in MainWindow.food where s.name.ToLower().Contains(filter) select s;
+                Grd_Menu_Food.ItemsSource = results;
+                var results1 = from s in MainWindow.drink where s.name.ToLower().Contains(filter) select s;
+                Grd_Menu_Drink.ItemsSource = results1;
+                var results2 = from s in MainWindow.starters where s.name.ToLower().Contains(filter) select s;
+                Grd_Menu_starter.ItemsSource = results2;
+            }
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Tbx_filter.Text = "";
+            Grd_Menu_Food.ItemsSource = MainWindow.food;
+            Grd_Menu_Drink.ItemsSource = MainWindow.drink;
+            Grd_Menu_starter.ItemsSource = MainWindow.starters;
+        }
+
+        private void Btn_clearFilter_Click(object sender, RoutedEventArgs e)
+        {
+            Tbx_filter.Text = "";
+            Grd_Menu_Food.ItemsSource = MainWindow.food;
+            Grd_Menu_Drink.ItemsSource = MainWindow.drink;
+            Grd_Menu_starter.ItemsSource = MainWindow.starters;
+        }
     }
 }

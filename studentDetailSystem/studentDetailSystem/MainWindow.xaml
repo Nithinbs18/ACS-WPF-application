@@ -3,11 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:resX="clr-namespace:studentDetailSystem.Properties"
         xmlns:local="clr-namespace:studentDetailSystem"
         Loaded="Window_Loaded"
         Closing="Window_Closing"
         mc:Ignorable="d"
-        Title="Manage Students" Height="376.834" Width="400">
+        Title="{x:Static resX:Resources.Txt_mngStudents}" Height="376.834" Width="400">
     <Grid Margin="0,28,-0.4,10.2" >
         <Grid.Resources>
             <local:Bool2String x:Key="cB2S" />

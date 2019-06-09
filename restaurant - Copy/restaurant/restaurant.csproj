@@ -35,8 +35,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Syncfusion.Compression.Base, Version=17.1460.0.50, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Compression.Base.17.1.0.50\lib\net46\Syncfusion.Compression.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=17.1460.0.50, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.17.1.0.50\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Base, Version=17.1460.0.50, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Pdf.Wpf.17.1.0.50\lib\net46\Syncfusion.Pdf.Base.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,9 +66,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="classes\DataStorageClass.cs" />
+    <Compile Include="classes\PrintBill.cs" />
     <Compile Include="classes\TableNo.cs" />
     <Compile Include="pages\billing.xaml.cs">
       <DependentUpon>billing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\welcome.xaml.cs">
+      <DependentUpon>welcome.xaml</DependentUpon>
     </Compile>
     <Compile Include="window\Kitchen.xaml.cs">
       <DependentUpon>Kitchen.xaml</DependentUpon>
@@ -69,6 +85,10 @@
     </Compile>
     <Compile Include="classes\StatusChangeConvertor.cs" />
     <Page Include="pages\billing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\welcome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -118,6 +138,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -126,6 +147,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="1-37-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="33059.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="530828-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="radio-button-selected-01-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="radio-button-selected-01-512 - Copy.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

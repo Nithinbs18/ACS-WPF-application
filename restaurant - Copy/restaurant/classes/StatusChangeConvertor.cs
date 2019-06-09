@@ -23,7 +23,7 @@ namespace restaurant
             }
             else if (what == 2)
             {
-                return "Ready";
+                return "Ready to serve";
             }
             else
             {

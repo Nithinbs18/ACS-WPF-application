@@ -41,8 +41,8 @@ namespace restaurant
             }
         }
 
-        public int _quantity;
-        public int quantity
+        public float _quantity;
+        public float quantity
         {
             get { return _quantity; }
             set

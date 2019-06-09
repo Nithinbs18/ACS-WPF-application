@@ -1,0 +1,24 @@
+﻿<Window x:Class="Wpf_ManageStudents.W_Quiz"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_ManageStudents"
+        mc:Ignorable="d"
+        Closing="Window_Closing"
+        Loaded="Window_Loaded"
+        Title="W_Quiz" Height="450" Width="350" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Topic of questions" VerticalAlignment="Top" Margin="10,10,0,0" FontSize="14" Foreground="Azure" Height="46" Width="181"/>
+        <StackPanel Width="288" Height="327" Margin="30,56,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" >
+            <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding text}" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+            <ListBox x:Name="Lbx_answers" Margin="0,5" SelectionChanged="ListBox_SelectionChanged" ItemsSource="{Binding answers}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding text}" FontSize="14"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+    </Grid>
+</Window>

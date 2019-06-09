@@ -5,22 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:restaurant"
         mc:Ignorable="d"
-        Title="Indian Restaurant" Height="800" Width="800">
+        Title="Indian Restaurant" Height="755.334" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="174*"/>
             <ColumnDefinition Width="619*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel HorizontalAlignment="Left" Height="489" Margin="10,10,0,0" VerticalAlignment="Top" Width="154">
-            <Button Content="New Order" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="20,20,0,0" Height="41" Name="Btn_newOrder" Click="Btn_newOrder_Click"/>
-            <Button Name="Btn_readyOrder" Content="Ready Order" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="20,20,0,0" Height="41" Click="Btn_readyOrder_Click" />
-            <Button Name="Btn_billing" Content="Billing" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="20,20,0,0" Height="41" Click="Btn_billing_Click" />
-            <!--<Button x:Name="Btn_kitchen" Content="Kitchen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="20,20,0,0" Height="41" Click="Btn_kitchen_Click" />-->
+        <StackPanel HorizontalAlignment="Left" Height="728" VerticalAlignment="Top" Width="164" Background="#FF11CADC" Margin="1,0,0,-2.4">
+            <Button Content="     New Order" VerticalAlignment="Top" Margin="0.165,200,-0.165,0" Height="62" Name="Btn_newOrder" Click="Btn_newOrder_Click" Foreground="#FF0E0606" Background="{x:Null}" BorderBrush="{x:Null}" FontWeight="Bold" FontStyle="Italic"/>
+            <Button Name="Btn_readyOrder" Content="   Ready Order" HorizontalAlignment="Left" VerticalAlignment="Top" Width="164" Margin="0,20,0,0" Height="61.267" Click="Btn_readyOrder_Click" Background="{x:Null}" Foreground="#FF0E0606" BorderBrush="{x:Null}" FontWeight="Bold" FontStyle="Italic" />
+            <Button x:Name="Btn_billing" Content="   Billing" HorizontalAlignment="Left" VerticalAlignment="Top" Width="164" Margin="0,20,0,0" Height="61.8" Click="Btn_billing_Click" Background="{x:Null}" Foreground="#FF0B0303" BorderBrush="{x:Null}" FontWeight="Bold" FontStyle="Italic" />
         </StackPanel>
-        <Frame Grid.Column="1" HorizontalAlignment="Left" Height="750" Margin="9.6,10,0,0" VerticalAlignment="Top" Width="600" Name="Frm_pageView"/>
+        <Frame HorizontalAlignment="Left" Height="659.187" Margin="0,54.095,0,0" VerticalAlignment="Top" Width="614.732" Name="Frm_pageView" NavigationUIVisibility="Hidden" Grid.Column="1"/>
+        <DockPanel HorizontalAlignment="Center" Height="34.365" LastChildFill="False" Margin="164,0,0,0" VerticalAlignment="Top" Width="629.6" Grid.ColumnSpan="2" Background="#FF151782"/>
+        <Image Margin="5.998,210.667,117.601,462.001" Source="33059.png" Stretch="Fill"/>
+        <Image Margin="9,367.15,101.799,298.341" Source="530828-200.png" Stretch="Fill"/>
+        <DockPanel Name="Dpl_bill" HorizontalAlignment="Center" Height="54.643" LastChildFill="False" Margin="155.855,367.15,10,0" VerticalAlignment="Top" Width="8.277" Background="#FF151782"/>
+        <DockPanel Name="Dpl_ready" HorizontalAlignment="Center" Height="54.643" LastChildFill="False" Margin="155.855,285.325,10,0" VerticalAlignment="Top" Width="8.277" Background="#FF151782"/>
+        <DockPanel Name="Dpl_new" HorizontalAlignment="Center" Height="54.643" LastChildFill="False" Margin="155.855,204.29,10,0" VerticalAlignment="Top" Width="8.277" Background="#FF151782"/>
+        <TextBlock x:Name="Tbk_welcome" TextWrapping="Wrap" VerticalAlignment="Top" Margin="4,88,12.4,0" Height="67" FontFamily="Forte" FontWeight="Bold" TextDecorations="Underline" FontSize="20" PreviewMouseDown="Tbk_welcome_click" ><Run Text="High "/><Run Text="on "/><Run Text="flavours"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="71,114,0,0" Height="17" Width="88" FontFamily="Script MT Bold"><Run Text="experience India"/><Run Text="..."/></TextBlock>
+        <DockPanel HorizontalAlignment="Center" Height="35" LastChildFill="False" Margin="164,691,-0.4,-0.4" VerticalAlignment="Top" Width="630" Grid.ColumnSpan="2" Background="#FF151782"/>
+        <Image Margin="4,292,124.4,385.6" Source="radio-button-selected-01-512 - Copy.png" Stretch="Fill"/>
+
+        <!--<Button x:Name="Btn_kitchen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="10,706,0,0" Height="41" Click="Btn_kitchen_Click" Background="Transparent" />-->
 
     </Grid>
 </Window>
