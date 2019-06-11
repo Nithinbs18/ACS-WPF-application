@@ -9,6 +9,7 @@ namespace restaurant
 {
     public class Orders : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         public int _orderNo;
         public int orderNo
         {
@@ -20,9 +21,8 @@ namespace restaurant
             }
         }
         public int tableNo { get; set; }
-        
+
         public Products orderItem { get; set; }
-        public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(PropertyChangedEventArgs e)
         {
             if (PropertyChanged != null)

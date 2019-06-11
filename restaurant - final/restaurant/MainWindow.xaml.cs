@@ -25,8 +25,7 @@ namespace restaurant
         public static ObservableCollection<Orders> readyOrders = new ObservableCollection<Orders>();
         public static ObservableCollection<Orders> billOrder = new ObservableCollection<Orders>();
         public static ObservableCollection<TableNo> tableOrder = new ObservableCollection<TableNo>();
-        public static ObservableCollection<Orders> finalBillOrder = new ObservableCollection<Orders>();
-
+        public static ObservableCollection<Orders> finalBillOrder = new ObservableCollection<Orders>(); 
         public static ObservableCollection<Products> food = new ObservableCollection<Products>();
         public static ObservableCollection<Products> drink = new ObservableCollection<Products>();
         public static ObservableCollection<Products> starters = new ObservableCollection<Products>();
@@ -38,8 +37,6 @@ namespace restaurant
         {
             InitializeComponent();
             kit.Show();
-            //kit.Owner = this;
-            //Console.WriteLine(orderNo);
             var menuFood = new ObservableCollection<Products>();
             menuFood = DataStorageClass.ReadXml<ObservableCollection<Products>>("foodProducts.xml");
             foreach (var item in menuFood)
@@ -88,11 +85,6 @@ namespace restaurant
             Dpl_bill.Visibility = Visibility.Visible;
             Dpl_new.Visibility = Visibility.Hidden;
             Dpl_ready.Visibility = Visibility.Hidden;
-        }
-
-        private void Btn_kitchen_Click(object sender, RoutedEventArgs e)
-        {
-            kit.Show();
         }
 
         private void Tbk_welcome_click(object sender, MouseButtonEventArgs e)

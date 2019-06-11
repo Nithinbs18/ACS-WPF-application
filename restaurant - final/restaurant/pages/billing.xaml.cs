@@ -53,13 +53,11 @@ namespace restaurant
         {
             InitializeComponent();
             Grd_billOrders.ItemsSource = MainWindow.finalBillOrder;
-            //Tbk_orderno.Text = this.forOrderno;
         }
 
         private void Cbx_tableNo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var tblNo = Cbx_tableNo.SelectedValue.ToString();
-            //Console.WriteLine(tblNo);
             switch (tblNo)
             {
                 case "System.Windows.Controls.ComboBoxItem: Table no. 1":
@@ -82,7 +80,6 @@ namespace restaurant
                 if (item.tableNo == this.orderTableNo && !item.orderClosed)
                 {
                     this.TableOrderNo = item.tableOrderNo;
-                    Console.WriteLine(this.TableOrderNo);
                     Tbk_orderno.Text = item.tableOrderNo.ToString();
                 }
             }
@@ -98,7 +95,7 @@ namespace restaurant
                     this.BillData.Add(new printBillData { Name= order.orderItem.name, Quantity=order.quantity, Price=order.orderItem.price});
                 }
                 this.sum = tot;
-                Tbx_sum.Text = this.sum.ToString();
+                Tbx_sum.Text = this.sum.ToString()+" Euros";
                 if (MainWindow.finalBillOrder.Count == 0)
                 {
                     Tbk_orderno.Text = "";

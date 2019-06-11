@@ -243,10 +243,15 @@ namespace restaurant
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Tbx_filter.Text = "";
-            Grd_Menu_Food.ItemsSource = MainWindow.food;
-            Grd_Menu_Drink.ItemsSource = MainWindow.drink;
-            Grd_Menu_starter.ItemsSource = MainWindow.starters;
+            //if (Starters.is || Food || Desserts)
+            if (e.Source is TabControl)
+            {
+                Tbx_filter.Text = "";
+                Grd_Menu_Food.ItemsSource = MainWindow.food;
+                Grd_Menu_Drink.ItemsSource = MainWindow.drink;
+                Grd_Menu_starter.ItemsSource = MainWindow.starters;
+            }
+            
         }
 
         private void Btn_clearFilter_Click(object sender, RoutedEventArgs e)

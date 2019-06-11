@@ -31,7 +31,6 @@ namespace restaurant
             }
 
         }
-
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return true;

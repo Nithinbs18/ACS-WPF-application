@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:restaurant"
         mc:Ignorable="d"
-        Title="Kitchen" Height="641.127" Width="597.183">
+        Title="High on flavours - Kitchen" Height="641.127" Width="597.183">
     <Grid Margin="3,0,0.4,0.2">
         <Grid.Resources>
             <local:StatusChangeConvertor x:Key="cB2S" />
@@ -13,9 +13,10 @@
         <DataGrid Background="#FFADD9DD" Name="Grd_kitchen" HorizontalAlignment="Left" Height="513" Margin="10,88,0,0" VerticalAlignment="Top" Width="567" AutoGenerateColumns="False" IsReadOnly="True" FontSize="15">
             <DataGrid.Columns>
                 <!--<DataGridTextColumn Header="Number" Binding="{Binding orderID}" Width="*" />-->
+                <DataGridTextColumn Header="Table no." Binding="{Binding tableNo}" Width="0.6*" />
                 <DataGridTextColumn Header="Name" Binding="{Binding orderItem.name}" Width="*" />
                 <DataGridTextColumn Header="Details" Binding="{Binding details}" Width="2*"  />
-                <DataGridTextColumn Header="Quantity" Binding="{Binding quantity}" Width="0.55*" />
+                <DataGridTextColumn Header="Quantity" Binding="{Binding quantity}" Width="0.6*" />
                 <!--<DataGridTextColumn  >-->
                 <DataGridTemplateColumn Header="Status" Width="0.8*">
                     <DataGridTemplateColumn.CellTemplate>

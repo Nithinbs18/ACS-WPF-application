@@ -40,7 +40,7 @@
                         <DataGridTextColumn Header="Description" Binding="{Binding description}" Width="3*" IsReadOnly="True" />
                     </DataGrid.Columns>
                 </DataGrid>
-                <!--</Grid>-->
+                <!--</Grid>--> 
             </TabItem>
             <TabItem Header="Food" FontSize="15" Height="26" Margin="1.4,-1,-5.8,0" VerticalAlignment="Top">
                 <DataGrid FontSize="12" Background="#FFADD9DD" IsReadOnly="True" x:Name="Grd_Menu_Food" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="216"  VerticalAlignment="Top" Width="567" AutoGenerateColumns="False" Margin="0,0,0,-0.8" >
