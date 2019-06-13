@@ -29,10 +29,12 @@ namespace restaurant
         public static ObservableCollection<Products> food = new ObservableCollection<Products>();
         public static ObservableCollection<Products> drink = new ObservableCollection<Products>();
         public static ObservableCollection<Products> starters = new ObservableCollection<Products>();
+        public static ObservableCollection<BillHistoryData> persistantBillData = new ObservableCollection<BillHistoryData>();
         public static readyOrder readyPage = new readyOrder();
         public static Kitchen kit = new Kitchen();
         public static welcome welcome = new welcome();
         public static int orderNo = (int.Parse(DateTime.UtcNow.ToString("yyMMdd"))) * 1000;
+        public static int Elp_disp = 1;
         public MainWindow()
         {
             InitializeComponent();
@@ -41,11 +43,11 @@ namespace restaurant
             menuFood = DataStorageClass.ReadXml<ObservableCollection<Products>>("foodProducts.xml");
             foreach (var item in menuFood)
             {
-                if (item.category == 4)
+                if (item.category == 2)
                 {
                     MainWindow.drink.Add(item);
                 }
-                else if (item.category == 2 || item.category == 1 || item.category == 3)
+                else if (item.category == 1)
                 {
                     MainWindow.food.Add(item);
                 }
@@ -54,6 +56,7 @@ namespace restaurant
                     MainWindow.starters.Add(item);
                 }
             }
+            persistantBillData = DataStorageClass.ReadXml<ObservableCollection<BillHistoryData>>("billingData.xml");
 
             Frm_pageView.Content = welcome;
             Dpl_bill.Visibility = Visibility.Hidden;
@@ -76,7 +79,7 @@ namespace restaurant
             Dpl_bill.Visibility = Visibility.Hidden;
             Dpl_new.Visibility = Visibility.Hidden;
             Dpl_ready.Visibility = Visibility.Visible;
-        }
+         }
 
         private void Btn_billing_Click(object sender, RoutedEventArgs e)
         {
@@ -90,6 +93,11 @@ namespace restaurant
         private void Tbk_welcome_click(object sender, MouseButtonEventArgs e)
         {
             Frm_pageView.Content = welcome;
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            DataStorageClass.WriteXml<ObservableCollection<BillHistoryData>>(persistantBillData, "billingData.xml");
         }
     }
 }

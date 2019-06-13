@@ -14,11 +14,11 @@
         </Grid.Resources>
         <DataGrid Background="#FFA8E2E8" Name="Grd_readyOrders" HorizontalAlignment="Left" Height="527.948" Margin="10,77.052,0,0" VerticalAlignment="Top" Width="574" AutoGenerateColumns="False" IsReadOnly="True" FontSize="15">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Table no." Binding="{Binding tableNo}" Width="*" />
+                <DataGridTextColumn Header="Table no." Binding="{Binding tableNo}" Width="0.6*" />
                 <DataGridTextColumn Header="Name" Binding="{Binding orderItem.name}" Width="*" />
-                <DataGridTextColumn Header="details" Binding="{Binding details}" Width="*"  />
-                <DataGridTextColumn Header="quantity" Binding="{Binding quantity}" Width="*" />
-                <DataGridTemplateColumn Header="Status" Width="*">
+                <!--<DataGridTextColumn Header="Details" Binding="{Binding details}" Width="*"  />-->
+                <DataGridTextColumn Header="Quantity" Binding="{Binding quantity}" Width="0.5*" />
+                <DataGridTemplateColumn Header="Status" Width="0.8*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Name="Btn_ready" Background="White" BorderBrush="White"  Content="{Binding status, Converter={StaticResource cB2S }}" Click="Btn_ready_Click"/>

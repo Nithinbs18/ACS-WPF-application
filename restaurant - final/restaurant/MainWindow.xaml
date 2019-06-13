@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:restaurant"
         mc:Ignorable="d"
+        Closed="Window_Closed"
         Title="High on flavours" Height="755.334" Width="800">
     <Grid>
 
@@ -28,7 +29,6 @@
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="71,114,0,0" Height="17" Width="88" FontFamily="Script MT Bold"><Run Text="experience India"/><Run Text="..."/></TextBlock>
         <DockPanel HorizontalAlignment="Center" Height="35" LastChildFill="False" Margin="164,691,-0.4,-0.4" VerticalAlignment="Top" Width="630" Grid.ColumnSpan="2" Background="#FF151782"/>
         <Image Margin="4,292,124.4,385.6" Source="radio-button-selected-01-512 - Copy.png" Stretch="Fill"/>
-
         <!--<Button x:Name="Btn_kitchen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="10,706,0,0" Height="41" Click="Btn_kitchen_Click" Background="Transparent" />-->
 
     </Grid>

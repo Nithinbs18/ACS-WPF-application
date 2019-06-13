@@ -57,6 +57,7 @@ namespace restaurant
 
         private void Cbx_tableNo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            this.BillData.Clear();
             var tblNo = Cbx_tableNo.SelectedValue.ToString();
             switch (tblNo)
             {
@@ -92,7 +93,7 @@ namespace restaurant
                     var q = order.quantity;
                     var p = order.orderItem.price;
                     tot += q * p;
-                    this.BillData.Add(new printBillData { Name= order.orderItem.name, Quantity=order.quantity, Price=order.orderItem.price});
+                    this.BillData.Add(new printBillData { Name = order.orderItem.name, Quantity = order.quantity, Price = order.orderItem.price });
                 }
                 this.sum = tot;
                 Tbx_sum.Text = this.sum.ToString()+" Euros";
@@ -103,7 +104,7 @@ namespace restaurant
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void closeOrder_Button_Click(object sender, RoutedEventArgs e)
         {
             if (this.orderTableNo == 0)
             {
@@ -116,11 +117,12 @@ namespace restaurant
                     if (table.tableNo == this.orderTableNo)
                     {
                         table.orderClosed = true;
-                        var bill = System.Windows.Forms.MessageBox.Show("Order close sucessfully. Do you what to print the bill?","Closed", MessageBoxButtons.YesNo);
+                        var bill = System.Windows.Forms.MessageBox.Show("Order closed sucessfully. Do you what to print the bill?","Closed", MessageBoxButtons.YesNo);
                         if (bill == DialogResult.Yes)
                         {
                             PrintBill printBill = new PrintBill(this.BillData, this.TableOrderNo.ToString(), this.sum.ToString());
                         }
+                        MainWindow.persistantBillData.Add(new BillHistoryData { billNo= this.TableOrderNo, total=this.sum});
                         MainWindow.tableOrder.Remove(table);
                         MainWindow.finalBillOrder.Clear();
                         this.BillData.Clear();

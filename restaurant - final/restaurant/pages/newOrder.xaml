@@ -59,7 +59,7 @@
                 </DataGrid>
             </TabItem>
         </TabControl>
-        <DataGrid FontSize="12" Background="#FFADD9DD" x:Name="Grd_orders" HorizontalAlignment="Left" Height="189" Margin="10,434,0,0" VerticalAlignment="Top" Width="566" AutoGenerateColumns="False" IsReadOnly="False">
+        <DataGrid FontSize="12" Background="#FFADD9DD" x:Name="Grd_orders" HorizontalAlignment="Left" Height="189" Margin="10,434,0,0" VerticalAlignment="Top" Width="572" AutoGenerateColumns="False" IsReadOnly="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding orderItem.name}" Width="*" IsReadOnly="True" />
                 <DataGridTextColumn Header="Quantity" Binding="{Binding quantity}" Width="0.45*" IsReadOnly="True" />
@@ -78,7 +78,7 @@
         <Button x:Name="Btn_sub" Content="-" HorizontalAlignment="Left" Margin="416,394,0,0" VerticalAlignment="Top" Width="75" FontSize="20" Click="Btn_sub_Click" Background="#FF151782" Foreground="#FFFAF5F5"/>
         <Button x:Name="Btn_delete" Content="Delete" HorizontalAlignment="Left" Margin="496,394,0,0" VerticalAlignment="Top" Width="75" FontSize="15" Click="Btn_delete_Click" Height="30" RenderTransformOrigin="0.596,0.41" Background="#FF151782" Foreground="#FFFAF4F4"/>
         <Button x:Name="Btn_addItem" Content="Add" HorizontalAlignment="Left" FontSize="15" VerticalAlignment="Top" Width="75" Height="29" Click="Btn_addItem_Click" Margin="256,395,0,0" Background="#FF151782" Foreground="#FFF9F0F0"/>
-        <TextBlock HorizontalAlignment="Left" Margin="23,8,0,0" TextWrapping="Wrap" Text="New order" FontSize="20" VerticalAlignment="Top" Height="34" Width="146" FontWeight="Bold" FontStyle="Italic" TextDecorations="Underline"/>
+        <TextBlock HorizontalAlignment="Left" Margin="17,8,0,0" TextWrapping="Wrap" Text="New order" FontSize="20" VerticalAlignment="Top" Height="34" Width="146" FontWeight="Bold" FontStyle="Italic" TextDecorations="Underline"/>
         <StackPanel HorizontalAlignment="Left" Height="42" Margin="-5,98,0,0" VerticalAlignment="Top" Orientation="Horizontal" Width="434" RenderTransformOrigin="0.674,0.678">
             <TextBlock HorizontalAlignment="Left" Margin="20,0,0,0" TextWrapping="Wrap" Text="Filter:" VerticalAlignment="Top" Height="32" Width="101" FontSize="15"/>
             <TextBox FontSize="15" x:Name="Tbx_filter"  HorizontalAlignment="Left" Height="29"  TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="15,0,15,0" TextChanged="Tbx_filter_TextChanged" />
